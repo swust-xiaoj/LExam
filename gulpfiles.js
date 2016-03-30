@@ -1,8 +1,8 @@
 /**
- * your gulpfile
- * created by xiaojie
- * 2016-3-31 00:38:51
+ Gulpfile for lexam
+ created by xiaojie
 */
+
 var gulp = require('gulp'),
     os = require('os'),
     gutil = require('gulp-util'),
@@ -18,7 +18,6 @@ var gulp = require('gulp'),
     base64 = require('gulp-css-base64'),
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
-    minifyCSS = require('gulp-minify-css'),
     connect = require('gulp-connect');
 
 var host = {
@@ -27,36 +26,28 @@ var host = {
     html: 'index.html'
 };
 
+//mac chrome: "Google chrome", 
 var browser = os.platform() === 'linux' ? 'Google chrome' : (
-    os.platform() === 'darwin' ? 'Google chrome' : (
-    os.platform() === 'win32' ? 'chrome' : 'firefox'));
+  os.platform() === 'darwin' ? 'Google chrome' : (
+  os.platform() === 'win32' ? 'chrome' : 'firefox'));
 var pkg = require('./package.json');
 
-// copy images
+//将图片拷贝到目标目录
 gulp.task('copy:images', function (done) {
     gulp.src(['src/images/**/*'])
     .pipe(gulp.dest('dist/images'))
     .on('end', done);
 });
-// compile less and concat files
-gulp.task('less', function(done) {
-    gulp.src('src/css/*.less')
-    .pipe(less())
-    .pipe(concat('style.min.css'))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/css'))
-})
-// copy css files 
-gulp.task('copy:css', function(done) {
-    gulp.src(['src/css/**/*'])
-    .pipe(gulp.dest('dist/css'))
-})
 
-
-// copy static js files
-gulp.task('copy:js', function() {
-    gulp.src(['src/js/**/*'])
-    .pipe(gulp.dest('dist/js'));
+//压缩合并css, css中既有自己写的.less, 也有引入第三方库的.css
+gulp.task('lessmin', function (done) {
+    gulp.src(['src/css/lib/*.css','src/css/*.less'])
+        .pipe(less())
+        //这里可以加css sprite 让每一个css合并为一个雪碧图
+        // .pipe(spriter({}))
+        // .pipe(concat('style.min.css'))
+        .pipe(gulp.dest('dist/css/'))
+        .on('end', done);
 });
 
 //将js加上8位md5,并修改html中的引用路径，该动作依赖build-js
@@ -74,30 +65,48 @@ gulp.task('md5:css', ['sprite'], function (done) {
         .pipe(gulp.dest('dist/css'))
         .on('end', done);
 });
-//雪碧图操作，应该先拷贝图片并压缩合并css
-gulp.task('sprite', ['copy:images', 'less'], function (done) {
-    var timestamp = +new Date();
-    gulp.src('dist/css/style.min.css')
-        .pipe(spriter({
-            spriteSheet: 'dist/images/spritesheet' + timestamp + '.png',
-            pathToSpriteSheetFromCSS: '../images/spritesheet' + timestamp + '.png',
-            spritesmithOptions: {
-                padding: 10
-            }
+
+//用于在html文件中直接include文件
+gulp.task('fileinclude', function (done) {
+    gulp.src(['src/app/*.html'])
+        .pipe(fileinclude({
+          prefix: '@@',
+          basepath: '@file'
         }))
-        .pipe(base64())
-        .pipe(cssmin())
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('dist/app'))
         .on('end', done);
+        // .pipe(connect.reload())
 });
-// delete dist/
+
+//雪碧图操作，应该先拷贝图片并压缩合并css
+// gulp.task('sprite', ['copy:images', 'lessmin'], function (done) {
+//     var timestamp = +new Date();
+//     gulp.src('dist/css/style.min.css')
+//         .pipe(spriter({
+//             spriteSheet: 'dist/images/spritesheet' + timestamp + '.png',
+//             pathToSpriteSheetFromCSS: '../images/spritesheet' + timestamp + '.png',
+//             spritesmithOptions: {
+//                 padding: 10
+//             }
+//         }))
+//         .pipe(base64())
+//         .pipe(cssmin())
+//         .pipe(gulp.dest('dist/css'))
+//         .on('end', done);
+// });
+
 gulp.task('clean', function (done) {
     gulp.src(['dist'])
         .pipe(rimraf())
         .on('end', done);
 });
 
-gulp.task('server', function () {
+gulp.task('watch', function (done) {
+    gulp.watch('src/**/*', ['lessmin', 'build-js', 'fileinclude'])
+        .on('end', done);
+});
+
+gulp.task('connect', function () {
     console.log('connect------------');
     connect.server({
         root: host.path,
@@ -129,16 +138,9 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
         callback();
     });
 });
-//用于在html文件中直接include文件
-gulp.task('fileinclude', function (done) {
-    gulp.src(['src/app/*.html'])
-        .pipe(fileinclude({
-          prefix: '@@',
-          basepath: '@file'
-        }))
-        .pipe(gulp.dest('dist/app'))
-        .on('end', done);
-        // .pipe(connect.reload())
-});
 
-gulp.task('default', ['server','copy:js','copy:images','less','copy:css','fileinclude', 'md5:css', 'md5:js','open']);
+//发布
+gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
+
+//开发
+gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);

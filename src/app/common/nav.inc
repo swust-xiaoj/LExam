@@ -46,7 +46,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-save fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="panels-wells.html">题库列表</a>
@@ -58,7 +58,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-tasks fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="panels-wells.html">用户列表</a>
@@ -70,7 +70,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> 考场管理<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-copy fa-fw"></i> 考场管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="panels-wells.html">XXXX</a>
