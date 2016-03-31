@@ -18,7 +18,7 @@ function getEntry() {
             files[matchs[1]] = path.resolve(srcDir, 'js', item);
         }
     });
-    console.log(JSON.stringify(files));
+    console.log(JSON.stringify(files) + "xiaojie");
     return files;
 }
 
@@ -35,8 +35,13 @@ module.exports = {
     resolve: {
         alias: {
             jquery: srcDir + "/js/lib/jquery.min.js",
-            core: srcDir + "/js/core",
-            ui: srcDir + "/js/ui"
+            // core: srcDir + "/js/core",
+            ui: srcDir + "/js/ui",
+            paginator : srcDir + '/js/lib/jqPaginator.js',
+            artTemplate : srcDir + '/js/lib/artTemplate.js',
+            bootstrap : srcDir + '/js/lib/bootstrap.min.js',
+            metisMenu: srcDir + '/js/lib/metisMenu.min.js',
+            startmin: srcDir + '/js/lib/startmin.js'
         }
     },
     plugins: [

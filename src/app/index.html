@@ -10,7 +10,52 @@
  		<div class="container-fluid">
  			<div class="row">
  				<div class="col-lg-12">
- 					<h1 class="page-header">Blank</h1>
+ 					<div class="row opration page-header">
+                        <div class="col-md-6">
+                            <button type="button" class="btn  btn-success addExam">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加考试
+                            </button>
+                            <button type="button" class="btn  btn-info delete">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除考试
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control searTitle"
+                                    placeholder="标题"> <span
+                                    class="input-group-btn">
+                                    <button class="btn btn-primary search" type="button">查询</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                <table class="table table-bordered table-hover table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="check_list" />全选</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>EndTime</th>
+                            <th>StartTime</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listInfo">
+                    </tbody>
+                </table>
+                <script id="getcontent" type="text/html">
+                    {{each data as value i}} 
+                           <tr>
+                            <th><input type="checkbox" value="{{value.examId}}" name="title"/></th>
+                            <td>{{++i}}</td>
+                            <td><a href="examDetail.html?id={{value.examId}}" class="title">{{value.title}}</a></td>
+                            <td>{{value.endTime}}</td>
+                            <td>{{value.startTime}}</td>
+                           </tr>
+                    {{/each}}
+                </script>
+                <div class="row col-md-offset-8">
+                    <ul class="pagination" id="pagination"></ul>
+                </div>
  				</div>
  			</div>
  		</div>
@@ -19,5 +64,8 @@
  </div>
 
 @@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/question.js')
+</script>
 </body>
 </html>

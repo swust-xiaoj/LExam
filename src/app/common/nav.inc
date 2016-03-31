@@ -33,7 +33,7 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
-                <li>
+                <li class='active'>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 考试管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>

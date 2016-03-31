@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect');
 
 var host = {
-    path: 'dist/',
+    path: 'lexam/',
     port: 3000,
     html: 'index.html'
 };
@@ -97,12 +97,18 @@ gulp.task('clean', function (done) {
         .on('end', done);
 });
 
-gulp.task('server', function () {
-    console.log('connect------------');
+// gulp.task('server', function () {
+//     console.log('connect------------');
+//     connect.server({
+//         root: host.path,
+//         port: host.port,
+//     });
+// });
+gulp.task('server',function(){
     connect.server({
-        root: host.path,
-        port: host.port,
-        livereload: true
+      hostname: '100.67.190.185',//配置你的主机ip
+      port: 8090,//配置你的端口号
+      livereload: true
     });
 });
 
@@ -141,4 +147,4 @@ gulp.task('fileinclude', function (done) {
         // .pipe(connect.reload())
 });
 
-gulp.task('default', ['server','copy:js','copy:images','less','copy:css','fileinclude', 'md5:css', 'md5:js','open']);
+gulp.task('default', ['server','copy:js','copy:images','less','copy:css','fileinclude', 'md5:css', 'md5:js']);
