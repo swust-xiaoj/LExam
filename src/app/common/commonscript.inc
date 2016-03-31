@@ -1,4 +1,4 @@
-jQuery -->
+<!-- jQuery  -->
 <script src="../js/lib/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
@@ -8,8 +8,8 @@ jQuery -->
 <script src="../js/lib/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
+<script src="../js/lib/startmin.js"></script>
 
 <!-- seajs -->
 <script src="../js/lib/sea.js"></script>
-<script src="../js/lib/startmin.js"></script>
 <script src="../js/common.js"></script>
