@@ -2,6 +2,7 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('paginator');
+    var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
 
     var program ={
@@ -61,12 +62,18 @@ define(function (require, exports, module) {
     };
     program.getExamInfo(1);
     program.deleteIt();
-
-    $(".addExam").click(function(){
-        $('#addCourse').modal({
-                backdrop:'static'
-            }); 
-    });
+    var params = {
+        id: 'addModal',
+        body: 'I am the body',
+        title: 'test-title'
+    };
+    var newModal  = new modal(params);
+    newModal.init();
+    // $(".addExam").click(function(){
+    //     $('#addCourse').modal({
+    //             backdrop:'static'
+    //         }); 
+    // });
      $.jqPaginator('#pagination', {
                     totalCounts : program.count,
                     visiblePages: 5,
