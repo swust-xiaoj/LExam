@@ -5,6 +5,26 @@ define(function (require, exports, module) {
     var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
 
+    var params = {
+        id: 'addModal',
+        body: 'I am the body',
+        title: 'test-title',
+        cancelText:'cancel',
+        confirmText:'confirm',
+        cancel: function(){
+            alert('test cancel');
+        },
+        confirm:function(){
+            alert('test confirm');
+            return false;
+        }
+    };
+    console.log(params)
+    // var modalEle = template('myModal',params);
+    // $('body').append(modalEle);
+    var newModal  = new modal(params);
+    newModal.init();
+    // $('#addModal').modal('show')
     var program ={
         title:'',
         getExamInfo:function(page){
@@ -62,18 +82,10 @@ define(function (require, exports, module) {
     };
     program.getExamInfo(1);
     program.deleteIt();
-    var params = {
-        id: 'addModal',
-        body: 'I am the body',
-        title: 'test-title'
-    };
-    var newModal  = new modal(params);
-    newModal.init();
-    // $(".addExam").click(function(){
-    //     $('#addCourse').modal({
-    //             backdrop:'static'
-    //         }); 
-    // });
+    
+    $(".addexam").click(function(){
+        $('#addModal').modal('show'); 
+    });
      $.jqPaginator('#pagination', {
                     totalCounts : program.count,
                     visiblePages: 5,

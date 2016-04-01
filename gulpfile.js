@@ -97,6 +97,11 @@ gulp.task('clean', function (done) {
         .on('end', done);
 });
 
+gulp.task('watch', function (done) {
+    gulp.watch('src/**/*', ['less', 'build-js', 'fileinclude'])
+        .on('end', done);
+});
+
 // gulp.task('server', function () {
 //     console.log('connect------------');
 //     connect.server({
@@ -148,3 +153,4 @@ gulp.task('fileinclude', function (done) {
 });
 
 gulp.task('default', ['server','copy:js','copy:images','less','copy:css','fileinclude', 'md5:css', 'md5:js']);
+gulp.task('dev', ['server','copy:images','copy:js', 'fileinclude','less','build-js','copy:css','watch']);

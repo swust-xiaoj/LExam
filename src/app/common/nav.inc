@@ -14,7 +14,7 @@
 
     <ul class="nav navbar-right navbar-top-links">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                 <i class="fa fa-user fa-fw"></i> admin <b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">

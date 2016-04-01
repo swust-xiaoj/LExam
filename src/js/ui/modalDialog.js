@@ -41,14 +41,14 @@ define(function(require){
             cancelBtn = modal.getElementsByClassName('cancelBtn')[0];
             cancelBtn.addEventListener('click', function() {
                 _this.cancel(modal);
-                _this.destory();
+                // _this.destory();
             });
         }
         if (this.confirm) {
             confirmBtn = modal.getElementsByClassName('confirmBtn')[0];
             confirmBtn.addEventListener('click', function() {
                 _this.confirm(modal);
-                _this.destory();
+                // _this.destory();
             });
         }
     };
