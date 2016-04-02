@@ -37,7 +37,7 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 考试管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="flot.html">试卷</a>
+                            <a href="exam.html">试卷</a>
                         </li>
                         <li>
                             <a href="morris.html">相似度检测结果</a>
@@ -49,7 +49,7 @@
                     <a href="#"><i class="fa fa-save fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.html">题库列表</a>
+                            <a href="problem.html">题库列表</a>
                         </li>
                         <li>
                             <a href="buttons.html">用户提交</a>

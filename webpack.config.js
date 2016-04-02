@@ -40,6 +40,8 @@ module.exports = {
             paginator : srcDir + '/js/lib/jqPaginator.js',
             artTemplate : srcDir + '/js/lib/artTemplate.js',
             bootstrap : srcDir + '/js/lib/bootstrap.min.js',
+            ueditor_config : srcDir + '/js/lib/ueditor/ueditor.config.js',
+            ueditor: srcDir + '/js/lib/ueditor/ueditor.all.min.js',
             metisMenu: srcDir + '/js/lib/metisMenu.min.js',
             startmin: srcDir + '/js/lib/startmin.js'
         }

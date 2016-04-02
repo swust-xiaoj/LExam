@@ -2,36 +2,15 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('paginator');
-    var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
 
-    var params = {
-        id: 'addModal',
-        body: 'I am the body',
-        title: 'test-title',
-        cancelText:'cancel',
-        confirmText:'confirm',
-        cancel: function(){
-            alert('test cancel');
-        },
-        confirm:function(){
-            alert('test confirm');
-            return false;
-        }
-    };
-    console.log(params)
-    // var modalEle = template('myModal',params);
-    // $('body').append(modalEle);
-    var newModal  = new modal(params);
-    newModal.init();
-    // $('#addModal').modal('show')
     var program ={
         title:'',
-        getExamInfo:function(page){
-             $.ajax({
+        getProblemInfo:function(page){
+            $.ajax({
                 type : "get",
                 content : "application/x-www-form-urlencoded;charset=UTF-8",
-                url:"../../mock/exam.json",
+                url:"../../mock/problem.json",     
                 dataType : 'json',
                 async : false,
                 data:{
@@ -39,11 +18,13 @@ define(function (require, exports, module) {
                     rows:"20"
                 },
                 success:function(result){ 
-                    console.log(result);
-                    program.count = result.total;
+                     program.count = result.total;
                      var lisr_render = template('getcontent', result);
                       $("#listInfo").empty();   
                       $("#listInfo").append(lisr_render);
+                },
+                error:function(){
+                   // pubMeth.alertInfo("alert-info","请求错误");
                 }
             });
         },
@@ -80,12 +61,12 @@ define(function (require, exports, module) {
             }); 
         }
     };
-    program.getExamInfo(1);
+    program.getProblemInfo(1);
     program.deleteIt();
     
-    $(".addexam").click(function(){
-        $('#addModal').modal('show'); 
-    });
+    // $(".addexam").click(function(){
+    //     $('#addModal').modal('show'); 
+    // });
      $.jqPaginator('#pagination', {
                     totalCounts : program.count,
                     visiblePages: 5,
@@ -96,7 +77,7 @@ define(function (require, exports, module) {
                     page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
                     onPageChange: function (num, type) {
                         if(type == 'init') {return;}
-                        program.getExamInfo(num);
+                        program.getProblemInfo(num);
                     }
      });
 });
