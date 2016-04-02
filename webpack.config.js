@@ -43,6 +43,7 @@ module.exports = {
             ueditor_config : srcDir + '/js/lib/ueditor/ueditor.config.js',
             ueditor: srcDir + '/js/lib/ueditor/ueditor.all.min.js',
             metisMenu: srcDir + '/js/lib/metisMenu.min.js',
+            datepicker: srcDir + '/js/lib/bootstrap-datepicker.js',
             startmin: srcDir + '/js/lib/startmin.js'
         }
     },

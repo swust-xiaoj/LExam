@@ -2,21 +2,61 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('paginator');
+    require('datepicker');
     var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
 
     var params = {
         id: 'addModal',
-        body: 'I am the body',
-        title: 'test-title',
-        cancelText:'cancel',
-        confirmText:'confirm',
+        title: '添加考试',
+        body: '<form class="form-horizontal">'
+                +  '<div class="form-group">'
+                +    '<label for="exam-title" class="col-sm-2 control-label">标题</label>'
+                +    '<div class="col-sm-10">'
+                +      '<input type="email" class="form-control" id="exam-title" placeholder="Title">'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label for="exam-des" class="col-sm-2 control-label">描述</label>'
+                +    '<div class="col-sm-10">'
+                +      '<textarea class="form-control" id="exam-des" rows="3"></textarea>'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label for="exam-start" class="col-sm-2 control-label">开始时间</label>'
+                +    '<div class="col-sm-10">'
+                +      '<div class="input-group date datepickers">'
+                +        '<input class="form-control" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>'
+                +      '</div>'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label for="exam-end" class="col-sm-2 control-label">结束时间</label>'
+                +    '<div class="col-sm-10">'
+                +      '<div class="input-group date datepicker">'
+                +        '<input class="form-control" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>'
+                +      '</div>'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label for="inputText" class="col-sm-2 control-label">可用编辑器：</label>'
+                +    '<div class="col-sm-10">'
+                +     '<select id="form-control">'
+                +        '<option>C++</option>'
+                +        '<option>GCC</option>'
+                +        '<option>JAVA</option>'
+                +      '</select>'
+                +    '</div>'
+                +  '</div>'
+                +'</form>',
+        cancelText:'关闭',
+        confirmText:'提交',
         cancel: function(){
-            alert('test cancel');
+            // alert('test cancel');
         },
         confirm:function(){
-            alert('test confirm');
-            return false;
+            // alert('test confirm');
+            // return false;
         }
     };
     console.log(params)
@@ -25,6 +65,9 @@ define(function (require, exports, module) {
     var newModal  = new modal(params);
     newModal.init();
     // $('#addModal').modal('show')
+
+    $('.datepicker').datepicker('left');
+    $('.datepickers').datepicker('place');
     var program ={
         title:'',
         getExamInfo:function(page){
