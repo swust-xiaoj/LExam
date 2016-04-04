@@ -1,1 +1,130 @@
-{"total":1,"data":[{"acedNum":0,"author":null,"codeLimit":0,"createTime":"2016-04-02 11:13:13","description":"<p>在一个果园里，多多已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。多多决定把所有的果子合成一堆。 &nbsp;每一次合并，多多可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。可以看出，所有的果子经过n-1次合并之后，就只剩下一堆了。多多在合并果子时总共消耗的体力等于每次合并所耗体力之和。 &nbsp;因为还要花大力气把这些果子搬回家，所以多多在合并果子时要尽可能地节省体力。假定每个果子重量都为1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使多多耗费的体力最少，并输出这个最小的体力耗费值。 &nbsp;例如有3种果子，数目依次为1，2，9。可以先将1、2堆合并，新堆数目为3，耗费体力为3。接着，将新堆与原先的第三堆合并，又得到新的堆，数目为12，耗费体力为12。所以多多总共耗费体力=3+12=15。可以证明15为最小的体力耗费值。</p>","inputSample":"3 \n1 2 9","inputTip":"<p>输入包括两行，第一行是一个整数n(1&lt;＝n&lt;=10000)，表示果子的种类数。第二行包含n个整数，用空格分隔，第i个整数ai(1&lt;＝ai&lt;=20000)是第i种果子的数目。</p>","judgeModel":0,"level":2,"limitMemory":65535,"limitTime":1000,"outputSample":"15","outputTip":"<p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。输入数据保证这个值小于2^31。</p>","probId":16,"standardSource":"PROGRAM MergeApple(INPUT, OUTPUT);\n\nCONST\n    MAX = 20000;\nTYPE\n    arr = array [1..10000] of longword;\nVAR\n    a : arr;\n    i, n : integer;\n\nFUNCTION Merge(a : arr; n : integer): LongWord;\n    var\n        lib : array [1..MAX] of integer;\n        oldQueue, newQueue : arr;\n        i, frontOld, frontNew, rearNew : integer;\n        sum : LongWord;\n    begin\n        if n = 1 then\n            Merge := a[1]\n        else if n = 2 then\n            Merge := a[1] + a[2]\n        else\n        begin\n            //基数排序\n            for i:=1 to MAX do\n                lib[i] := 0;\n            for i:=1 to n do\n                inc(lib[a[i]]);\n            n := 0;\n            for i:=1 to MAX do\n                while lib[i] > 0 do\n                begin\n                    inc(n);\n                    oldQueue[n] := i;\n                    dec(lib[i]);\n                end; {while}\n\n            frontOld := 1;\n            frontNew := 1;\n            rearNew  := 1;\n            {先加上前两个}\n            newQueue[rearNew] := oldQueue[frontOld] + oldQueue[frontOld+1];\n            inc(frontOld, 2);\n            while frontOld <= n do\n            begin\n                if oldQueue[frontOld] > newQueue[frontNew] then\n                begin\n                    sum := newQueue[frontNew];\n                    inc(frontNew);\n                end {if}\n                else\n                begin\n                    sum := oldQueue[frontOld];\n                    inc(frontOld);\n                end; {if}\n\n                if (frontNew <= rearNew) and (frontOld <= n) then\n                begin\n                    if oldQueue[frontOld] > newQueue[frontNew] then\n                    begin\n                        sum := sum + newQueue[frontNew];\n                        inc(frontNew);\n                    end {if}\n                    else\n                    begin\n                        sum := sum + oldQueue[frontOld];\n                        inc(frontOld);\n                    end; {if}\n                end {if}\n                else if frontNew <= rearNew then\n                begin\n                    sum := sum + newQueue[frontNew];\n                    inc(frontNew);\n                end {else if}\n                else\n                begin\n                    sum := sum + oldQueue[frontOld];\n                    inc(frontOld);\n                end; {else if}\n\n                inc(rearNew);\n                newQueue[rearNew] := sum;\n            end; {while}\n\n            while frontNew < rearNew do\n            begin\n                inc(rearNew);\n                newQueue[rearNew] := newQueue[frontNew] + newQueue[frontNew+1];\n                inc(frontNew, 2);\n            end; {while}\n\n            sum := 0;\n            for i:=1 to rearNew do\n                inc(sum, newQueue[i]);\n            Merge := sum;\n        end; {else}\n    end; {Merge}\n\nBEGIN\n    read(n);\n    for i:=1 to n do\n        read(a[i]);\n\n    writeln(Merge(a, n));\nEND.","testdataNum":null,"title":"合并果子","totalSubmit":0}]}
+{
+    "total": 1, 
+    "data": [
+        {
+            "acedNum": 0, 
+            "author": null, 
+            "codeLimit": 0, 
+            "createTime": "2016-04-02 11:13:13", 
+            "description": "<p>在一个果园里，多多已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。多多决定把所有的果子合成一堆。  每一次合并，多多可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。可以看出，所有的果子经过n-1次合并之后，就只剩下一堆了。多多在合并果子时总共消耗的体力等于每次合并所耗体力之和。  因为还要花大力气把这些果子搬回家，所以多多在合并果子时要尽可能地节省体力。假定每个果子重量都为1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使多多耗费的体力最少，并输出这个最小的体力耗费值。  例如有3种果子，数目依次为1，2，9。可以先将1、2堆合并，新堆数目为3，耗费体力为3。接着，将新堆与原先的第三堆合并，又得到新的堆，数目为12，耗费体力为12。所以多多总共耗费体力=3+12=15。可以证明15为最小的体力耗费值。</p>", 
+            "inputSample": "3 
+1 2 9", 
+            "inputTip": "<p>输入包括两行，第一行是一个整数n(1<＝n<=10000)，表示果子的种类数。第二行包含n个整数，用空格分隔，第i个整数ai(1<＝ai<=20000)是第i种果子的数目。</p>", 
+            "judgeModel": 0, 
+            "level": 2, 
+            "limitMemory": 65535, 
+            "limitTime": 1000, 
+            "outputSample": "15", 
+            "outputTip": "<p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。输入数据保证这个值小于2^31。</p>", 
+            "probId": 16, 
+            "standardSource": "PROGRAM MergeApple(INPUT, OUTPUT);
+
+CONST
+    MAX = 20000;
+TYPE
+    arr = array [1..10000] of longword;
+VAR
+    a : arr;
+    i, n : integer;
+
+FUNCTION Merge(a : arr; n : integer): LongWord;
+    var
+        lib : array [1..MAX] of integer;
+        oldQueue, newQueue : arr;
+        i, frontOld, frontNew, rearNew : integer;
+        sum : LongWord;
+    begin
+        if n = 1 then
+            Merge := a[1]
+        else if n = 2 then
+            Merge := a[1] + a[2]
+        else
+        begin
+            //基数排序
+            for i:=1 to MAX do
+                lib[i] := 0;
+            for i:=1 to n do
+                inc(lib[a[i]]);
+            n := 0;
+            for i:=1 to MAX do
+                while lib[i] > 0 do
+                begin
+                    inc(n);
+                    oldQueue[n] := i;
+                    dec(lib[i]);
+                end; {while}
+
+            frontOld := 1;
+            frontNew := 1;
+            rearNew  := 1;
+            {先加上前两个}
+            newQueue[rearNew] := oldQueue[frontOld] + oldQueue[frontOld+1];
+            inc(frontOld, 2);
+            while frontOld <= n do
+            begin
+                if oldQueue[frontOld] > newQueue[frontNew] then
+                begin
+                    sum := newQueue[frontNew];
+                    inc(frontNew);
+                end {if}
+                else
+                begin
+                    sum := oldQueue[frontOld];
+                    inc(frontOld);
+                end; {if}
+
+                if (frontNew <= rearNew) and (frontOld <= n) then
+                begin
+                    if oldQueue[frontOld] > newQueue[frontNew] then
+                    begin
+                        sum := sum + newQueue[frontNew];
+                        inc(frontNew);
+                    end {if}
+                    else
+                    begin
+                        sum := sum + oldQueue[frontOld];
+                        inc(frontOld);
+                    end; {if}
+                end {if}
+                else if frontNew <= rearNew then
+                begin
+                    sum := sum + newQueue[frontNew];
+                    inc(frontNew);
+                end {else if}
+                else
+                begin
+                    sum := sum + oldQueue[frontOld];
+                    inc(frontOld);
+                end; {else if}
+
+                inc(rearNew);
+                newQueue[rearNew] := sum;
+            end; {while}
+
+            while frontNew < rearNew do
+            begin
+                inc(rearNew);
+                newQueue[rearNew] := newQueue[frontNew] + newQueue[frontNew+1];
+                inc(frontNew, 2);
+            end; {while}
+
+            sum := 0;
+            for i:=1 to rearNew do
+                inc(sum, newQueue[i]);
+            Merge := sum;
+        end; {else}
+    end; {Merge}
+
+BEGIN
+    read(n);
+    for i:=1 to n do
+        read(a[i]);
+
+    writeln(Merge(a, n));
+END.", 
+            "testdataNum": null, 
+            "title": "合并果子", 
+            "totalSubmit": 0
+        }
+    ]
+}

@@ -1,1 +1,515 @@
-{"total":85,"data":[{"isCourse":0,"knowId":1,"knowName":"递归","parentId":83},{"isCourse":0,"knowId":2,"knowName":"动态规划","parentId":83},{"isCourse":0,"knowId":3,"knowName":"贪心","parentId":83},{"isCourse":0,"knowId":4,"knowName":"分治","parentId":83},{"isCourse":0,"knowId":5,"knowName":"排序","parentId":83},{"isCourse":0,"knowId":6,"knowName":"大整数","parentId":83},{"isCourse":0,"knowId":7,"knowName":"组合排序","parentId":83},{"isCourse":0,"knowId":8,"knowName":"堆","parentId":83},{"isCourse":0,"knowId":9,"knowName":"最短路径","parentId":83},{"isCourse":0,"knowId":10,"knowName":"练习","parentId":83},{"isCourse":0,"knowId":11,"knowName":"算法基础","parentId":83},{"isCourse":0,"knowId":12,"knowName":"变治","parentId":83},{"isCourse":0,"knowId":13,"knowName":"模拟","parentId":83},{"isCourse":0,"knowId":14,"knowName":"减治","parentId":83},{"isCourse":0,"knowId":15,"knowName":"时空权衡","parentId":83},{"isCourse":0,"knowId":16,"knowName":"链表","parentId":84},{"isCourse":0,"knowId":17,"knowName":"栈","parentId":84},{"isCourse":0,"knowId":18,"knowName":"队列","parentId":84},{"isCourse":0,"knowId":19,"knowName":"2012","parentId":84},{"isCourse":0,"knowId":20,"knowName":"回溯","parentId":84},{"isCourse":0,"knowId":21,"knowName":"acm","parentId":84},{"isCourse":0,"knowId":22,"knowName":"简单计算","parentId":84},{"isCourse":0,"knowId":23,"knowName":"条件分支","parentId":84},{"isCourse":0,"knowId":24,"knowName":"字符串","parentId":84},{"isCourse":0,"knowId":25,"knowName":"2013j","parentId":84},{"isCourse":0,"knowId":26,"knowName":"2013j,循环","parentId":84},{"isCourse":0,"knowId":27,"knowName":"循环","parentId":84},{"isCourse":0,"knowId":28,"knowName":"矩阵运算","parentId":85},{"isCourse":0,"knowId":29,"knowName":"图基础","parentId":85},{"isCourse":0,"knowId":30,"knowName":"2013y","parentId":85},{"isCourse":0,"knowId":31,"knowName":"c1","parentId":85},{"isCourse":0,"knowId":32,"knowName":"c2","parentId":85},{"isCourse":0,"knowId":33,"knowName":"C-Function","parentId":85},{"isCourse":0,"knowId":34,"knowName":"C-Struct","parentId":85},{"isCourse":0,"knowId":35,"knowName":"C-Final","parentId":85},{"isCourse":0,"knowId":36,"knowName":"2013zy","parentId":85},{"isCourse":0,"knowId":37,"knowName":"2013b","parentId":85},{"isCourse":0,"knowId":38,"knowName":"树和二叉树","parentId":85},{"isCourse":0,"knowId":39,"knowName":"线性结构","parentId":85},{"isCourse":0,"knowId":40,"knowName":"C-Simple","parentId":85},{"isCourse":0,"knowId":41,"knowName":"C","parentId":85},{"isCourse":0,"knowId":42,"knowName":"Funtion&Array","parentId":85},{"isCourse":0,"knowId":43,"knowName":"Funtion&amp;Array","parentId":85},{"isCourse":0,"knowId":44,"knowName":"C-Funtion+Array","parentId":85},{"isCourse":0,"knowId":45,"knowName":"查找和排序","parentId":85},{"isCourse":0,"knowId":46,"knowName":"图","parentId":85},{"isCourse":0,"knowId":47,"knowName":"线性结构b","parentId":85},{"isCourse":0,"knowId":48,"knowName":"树和二叉树b","parentId":85},{"isCourse":0,"knowId":49,"knowName":"查找和排序b","parentId":85},{"isCourse":0,"knowId":50,"knowName":"2014y","parentId":85},{"isCourse":0,"knowId":51,"knowName":"2014yjy","parentId":85},{"isCourse":0,"knowId":52,"knowName":"线性表","parentId":85},{"isCourse":0,"knowId":53,"knowName":"栈和队列","parentId":85},{"isCourse":0,"knowId":54,"knowName":"数据结构图","parentId":85},{"isCourse":0,"knowId":55,"knowName":"数据结构查找","parentId":85},{"isCourse":0,"knowId":56,"knowName":"数据结构排序","parentId":85},{"isCourse":0,"knowId":57,"knowName":"zy14","parentId":85},{"isCourse":0,"knowId":58,"knowName":"数据结构排序和查找","parentId":85},{"isCourse":0,"knowId":59,"knowName":"2014tm","parentId":85},{"isCourse":0,"knowId":60,"knowName":"C-2010补考","parentId":85},{"isCourse":0,"knowId":61,"knowName":"2015y","parentId":85},{"isCourse":0,"knowId":62,"knowName":"2015jy","parentId":85},{"isCourse":0,"knowId":63,"knowName":"掺","parentId":85},{"isCourse":0,"knowId":64,"knowName":"数据结构期中考试题","parentId":85},{"isCourse":0,"knowId":65,"knowName":"数据结构半期考试题","parentId":85},{"isCourse":0,"knowId":66,"knowName":"15zy","parentId":85},{"isCourse":0,"knowId":67,"knowName":"zy15","parentId":85},{"isCourse":0,"knowId":68,"knowName":"C-Struct-2015","parentId":85},{"isCourse":0,"knowId":69,"knowName":"数据结构期末考试","parentId":85},{"isCourse":0,"knowId":70,"knowName":"测试","parentId":85},{"isCourse":0,"knowId":71,"knowName":"C-2015补考","parentId":85},{"isCourse":0,"knowId":72,"knowName":"数据结构期末期末考试","parentId":85},{"isCourse":0,"knowId":73,"knowName":"数据结构期没考试","parentId":85},{"isCourse":0,"knowId":74,"knowName":"数据结构期末考试（补考）","parentId":85},{"isCourse":0,"knowId":75,"knowName":"数据结构期末考试(补考)","parentId":85},{"isCourse":0,"knowId":76,"knowName":"C-test1","parentId":85},{"isCourse":0,"knowId":77,"knowName":"C-Test2","parentId":85},{"isCourse":0,"knowId":78,"knowName":"2015","parentId":85},{"isCourse":0,"knowId":79,"knowName":"C-DB1","parentId":85},{"isCourse":0,"knowId":80,"knowName":"2015C-DB1","parentId":85},{"isCourse":0,"knowId":81,"knowName":"2015C-DB2","parentId":85},{"isCourse":0,"knowId":82,"knowName":"2015C-DB3","parentId":85},{"isCourse":1,"knowId":83,"knowName":"C程序设计","parentId":null},{"isCourse":1,"knowId":84,"knowName":"数据结构","parentId":null},{"isCourse":1,"knowId":85,"knowName":"算法分析","parentId":null}]}
+{
+    "total": 85, 
+    "data": [
+        {
+            "isCourse": 0, 
+            "knowId": 1, 
+            "knowName": "递归", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 2, 
+            "knowName": "动态规划", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 3, 
+            "knowName": "贪心", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 4, 
+            "knowName": "分治", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 5, 
+            "knowName": "排序", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 6, 
+            "knowName": "大整数", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 7, 
+            "knowName": "组合排序", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 8, 
+            "knowName": "堆", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 9, 
+            "knowName": "最短路径", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 10, 
+            "knowName": "练习", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 11, 
+            "knowName": "算法基础", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 12, 
+            "knowName": "变治", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 13, 
+            "knowName": "模拟", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 14, 
+            "knowName": "减治", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 15, 
+            "knowName": "时空权衡", 
+            "parentId": 83
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 16, 
+            "knowName": "链表", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 17, 
+            "knowName": "栈", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 18, 
+            "knowName": "队列", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 19, 
+            "knowName": "2012", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 20, 
+            "knowName": "回溯", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 21, 
+            "knowName": "acm", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 22, 
+            "knowName": "简单计算", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 23, 
+            "knowName": "条件分支", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 24, 
+            "knowName": "字符串", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 25, 
+            "knowName": "2013j", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 26, 
+            "knowName": "2013j,循环", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 27, 
+            "knowName": "循环", 
+            "parentId": 84
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 28, 
+            "knowName": "矩阵运算", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 29, 
+            "knowName": "图基础", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 30, 
+            "knowName": "2013y", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 31, 
+            "knowName": "c1", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 32, 
+            "knowName": "c2", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 33, 
+            "knowName": "C-Function", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 34, 
+            "knowName": "C-Struct", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 35, 
+            "knowName": "C-Final", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 36, 
+            "knowName": "2013zy", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 37, 
+            "knowName": "2013b", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 38, 
+            "knowName": "树和二叉树", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 39, 
+            "knowName": "线性结构", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 40, 
+            "knowName": "C-Simple", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 41, 
+            "knowName": "C", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 42, 
+            "knowName": "Funtion&Array", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 43, 
+            "knowName": "Funtion&Array", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 44, 
+            "knowName": "C-Funtion+Array", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 45, 
+            "knowName": "查找和排序", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 46, 
+            "knowName": "图", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 47, 
+            "knowName": "线性结构b", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 48, 
+            "knowName": "树和二叉树b", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 49, 
+            "knowName": "查找和排序b", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 50, 
+            "knowName": "2014y", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 51, 
+            "knowName": "2014yjy", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 52, 
+            "knowName": "线性表", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 53, 
+            "knowName": "栈和队列", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 54, 
+            "knowName": "数据结构图", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 55, 
+            "knowName": "数据结构查找", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 56, 
+            "knowName": "数据结构排序", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 57, 
+            "knowName": "zy14", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 58, 
+            "knowName": "数据结构排序和查找", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 59, 
+            "knowName": "2014tm", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 60, 
+            "knowName": "C-2010补考", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 61, 
+            "knowName": "2015y", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 62, 
+            "knowName": "2015jy", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 63, 
+            "knowName": "掺", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 64, 
+            "knowName": "数据结构期中考试题", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 65, 
+            "knowName": "数据结构半期考试题", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 66, 
+            "knowName": "15zy", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 67, 
+            "knowName": "zy15", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 68, 
+            "knowName": "C-Struct-2015", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 69, 
+            "knowName": "数据结构期末考试", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 70, 
+            "knowName": "测试", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 71, 
+            "knowName": "C-2015补考", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 72, 
+            "knowName": "数据结构期末期末考试", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 73, 
+            "knowName": "数据结构期没考试", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 74, 
+            "knowName": "数据结构期末考试（补考）", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 75, 
+            "knowName": "数据结构期末考试(补考)", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 76, 
+            "knowName": "C-test1", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 77, 
+            "knowName": "C-Test2", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 78, 
+            "knowName": "2015", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 79, 
+            "knowName": "C-DB1", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 80, 
+            "knowName": "2015C-DB1", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 81, 
+            "knowName": "2015C-DB2", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 0, 
+            "knowId": 82, 
+            "knowName": "2015C-DB3", 
+            "parentId": 85
+        }, 
+        {
+            "isCourse": 1, 
+            "knowId": 83, 
+            "knowName": "C程序设计", 
+            "parentId": null
+        }, 
+        {
+            "isCourse": 1, 
+            "knowId": 84, 
+            "knowName": "数据结构", 
+            "parentId": null
+        }, 
+        {
+            "isCourse": 1, 
+            "knowId": 85, 
+            "knowName": "算法分析", 
+            "parentId": null
+        }
+    ]
+}
