@@ -37,6 +37,7 @@ module.exports = {
             jquery: srcDir + "/js/lib/jquery.min.js",
             // core: srcDir + "/js/core",
             ui: srcDir + "/js/ui",
+            biz: srcDir + "/js/biz",
             paginator : srcDir + '/js/lib/jqPaginator.js',
             artTemplate : srcDir + '/js/lib/artTemplate.js',
             bootstrap : srcDir + '/js/lib/bootstrap.min.js',
@@ -48,7 +49,8 @@ module.exports = {
         }
     },
     plugins: [
-        new CommonsChunkPlugin('common.js'),
+        new CommonsChunkPlugin('common.js',['ui']),
+        new CommonsChunkPlugin('util.js',['biz']),
         new uglifyJsPlugin({
             compress: {
                 warnings: false
