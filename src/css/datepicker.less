@@ -6,6 +6,38 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
+ @white: #fff;
+ @grayLighter: #eee;
+ @grayLight: #777;
+ @btnPrimaryBackground: #337ab7;
+ @baseFontSize: 14px;
+ .border-radius(@radius) {
+ 	.border-top-radius(@radius);
+ 	.border-right-radius(@radius);
+ 	.border-bottom-radius(@radius);
+ 	.border-left-radius(@radius);
+ }
+ .border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}
+.buttonBackground(@bgcolor,@bdcolor) {
+	background-color: @bgcolor;
+	border-color: @bdcolor;
+}
+
  
 .datepicker {
 	top: 0;

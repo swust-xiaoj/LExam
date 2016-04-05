@@ -44,12 +44,14 @@ gulp.task('less', function(done) {
     .pipe(less())
     .pipe(concat('style.min.css'))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('dist/css/'))
+    .on('end', done);
 })
 // copy css files 
 gulp.task('copy:css', function(done) {
     gulp.src(['src/css/**/*'])
     .pipe(gulp.dest('dist/css'))
+    .on('end', done);
 })
 
 

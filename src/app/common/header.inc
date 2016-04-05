@@ -6,11 +6,11 @@
     <meta name="author" content="">
 
     <title>Lexam</title>
-    <link rel="stylesheet" href="../css/style.min.css">
     <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="../css/lib/metisMenu.min.css" rel="stylesheet">
     <link href="../css/lib/startmin.css" rel="stylesheet">
     <link href="../css/lib/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/style.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
