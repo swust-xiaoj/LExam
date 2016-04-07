@@ -3,40 +3,23 @@ define(function (require, exports, module) {
     require('bootstrap');
     require('paginator');
     var ajax = require('biz/ajax.js');
+    var url = require('biz/url.js');
     var template = require('artTemplate');
     var program = {};
-
-    function getProInfosuc(result) {
-        program.count = result.total;
-        var lisr_render = template('getcontent', result);
-        $('#listInfo').empty();
-        $('#listInfo').append(lisr_render);
-    }
 
     program ={
         title:'',
         getProblemInfo:function(page){
-            // $.ajax({
-            //     type : "get",
-            //     content : "application/x-www-form-urlencoded;charset=UTF-8",
-            //     url:"../../mock/problem.json",     
-            //     dataType : 'json',
-            //     async : false,
-            //     data:{
-            //         page:page,
-            //         rows:"20"
-            //     },
-            //     success:function(result){ 
-            //          program.count = result.total;
-            //          var lisr_render = template('getcontent', result);
-            //           $("#listInfo").empty();   
-            //           $("#listInfo").append(lisr_render);
-            //     },
             //     error:function(){
             //        // pubMeth.alertInfo("alert-info","请求错误");
             //     }
             // });
-            ajax('get', '../../mock/problem.json', false, {page:page,rows:20}, getProInfosuc, null);
+            ajax('get', url.PROBLEM_LIST, false, {page:page,rows:20},  function(result) {
+                this.count = result.total;
+                var lisr_render = template('getcontent', result);
+                $('#listInfo').empty();
+                $('#listInfo').append(lisr_render);
+            }, null);
         },
         deleteIt:function(){
             $('.delete').on('click', function (e) {
