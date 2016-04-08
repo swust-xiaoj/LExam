@@ -36,7 +36,17 @@ define(function(require){
                     }
                 }
             })
+        },
+        /*
+         * set ajax return status text
+         * @param className tips class only in [danger, success, info, warning]
+         * @param tipsText text, html string can also
+         */
+        setTips: function (className, tipsText) {
+            $('.tips').html('');
+            $('.tips').html('<div class="alert alert-'+ className +' alert-dismissable">'
+                + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
+                + tipsText + '</div>');
         }
     }
-
 })

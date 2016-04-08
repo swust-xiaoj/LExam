@@ -3,8 +3,8 @@ define(function (require, exports, module) {
         require('bootstrap');
         require('ueditor_config');
         require('ueditor');
-        // require('../js/common.js');
-    // var pubMeth = require('../js/public.js');
+        var utils = require('biz/utils.js');
+        var url = require('biz/url.js');
         var program = {
             date:'',
             title :'',
@@ -24,35 +24,31 @@ define(function (require, exports, module) {
             course:[],
             knowName:'',
             content :"",
-            getCourseName:function(){   
-                $.ajax({
-                    type:"get",
-                    content:"application/x-www-form-urlencoded;charset=UTF-8",
-                    url:"../../mock/selectKnowLedge.json",
-                    dataType : 'json',
-                    async : false,
-                    success:function( result ){
-                        var length = result.total;
-                        var currId = "";
-                        var flag = 0;
-                        for(var i = 0 ; i < length ; i++){
-                            if(result.data[i].isCourse){
-                                if(!flag){
-                                    currId = result.data[i].knowId;
-                                    flag = 1;
-                                }
-                                $(".courseName").append("<option value="+result.data[i].knowId+">"+result.data[i].knowName+"</option>");
-                            }else{
-                                program.course.push(result.data[i]);
+            getCourseName: function() {
+                var _this = this;
+                utils.ajax(url.SELECTKNOWLEDGE, {}, function(result) {
+                    var len = result.total;
+                    var curId = '', courseHTML = [], knowHTML = [], flag = 0;
+                    for(var i = 0; i < len; i++) {
+                        if (result.data[i].isCourse === 1) {
+                            if(!flag){
+                                curId = result.data[i].knowId;
+                                flag = 1;                        
                             }
+                            courseHTML.push('<option value=' + result.data[i].knowId + '>' + result.data[i].knowName + '</option>');
                         }
-                        for(var i = 0; i <length ; i++){
-                            if(result.data[i].parentId == currId){
-                                $(".knowName").append("<option value="+result.data[i].knowId+">"+result.data[i].knowName+"</option>");
-                            }
+                        if (result.data[i].isCourse === 1) {
+                            _this.course.push(result.data[i]);
                         }
                     }
-                });
+                    for(var i = 0; i < len; i++){
+                        if (result.data[i].parentId === curId) {
+                            knowHTML.push("<option value="+result.data[i].knowId+">"+result.data[i].knowName+"</option>");
+                        }                        
+                    }
+                    $('.courseName').html(courseHTML.join(''));
+                    $('.knowName').html(knowHTML.join(''));
+                })   
             },
             addProblem:function(id){
                  $.ajax({
@@ -104,21 +100,21 @@ define(function (require, exports, module) {
         },
         getProById:function(){
              $.ajax({
-                        type : "get",
-                        content : "application/x-www-form-urlencoded;charset=UTF-8",
-                        url:"../../mock/selectProblem.json",     
-                        dataType : 'json',
-                        async : false,
-                        data:{
-                            "problemInfo.probId" : program.probId 
-                        },
-                        success:function(result){ 
-                             console.log(result.data[0]);
-                            program.content = result.data[0];
-                        },error:function(){
-                           // pubMeth.alertInfo("alert-info","请求错误");
-                        }
-                    });
+                type : "get",
+                content : "application/x-www-form-urlencoded;charset=UTF-8",
+                url:"../../mock/selectProblem.json",     
+                dataType : 'json',
+                async : false,
+                data:{
+                    "problemInfo.probId" : program.probId 
+                },
+                success:function(result){ 
+                     console.log(result.data[0]);
+                    program.content = result.data[0];
+                },error:function(){
+                   // pubMeth.alertInfo("alert-info","请求错误");
+                }
+            });
         },
         getQueryObject:function () {
            var  url = window.location.href;
