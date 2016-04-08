@@ -5,6 +5,8 @@ define(function (require, exports, module) {
     require('datepicker');
     var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
+    var utils = require('biz/utils.js');
+    var url = require('biz/url.js');
 
     var params = {
         id: 'addModal',
@@ -52,42 +54,27 @@ define(function (require, exports, module) {
         cancelText:'关闭',
         confirmText:'提交',
         cancel: function(){
-            // alert('test cancel');
+            // cancel funtion
         },
         confirm:function(){
-            // alert('test confirm');
-            // return false;
+            // confirm function
         }
     };
-    console.log(params)
-    // var modalEle = template('myModal',params);
-    // $('body').append(modalEle);
+
     var newModal  = new modal(params);
     newModal.init();
-    // $('#addModal').modal('show')
 
     $('.datepicker').datepicker('left');
     $('.datepickers').datepicker('place');
     var program ={
         title:'',
         getExamInfo:function(page){
-             $.ajax({
-                type : "get",
-                content : "application/x-www-form-urlencoded;charset=UTF-8",
-                url:"../../mock/exam.json",
-                dataType : 'json',
-                async : false,
-                data:{
-                    page:page,
-                    rows:"20"
-                },
-                success:function(result){ 
-                    console.log(result);
-                    program.count = result.total;
-                     var lisr_render = template('getcontent', result);
-                      $("#listInfo").empty();   
-                      $("#listInfo").append(lisr_render);
-                }
+            var _this = this;
+            utils.ajax(url.EXAM_LIST, {page:page,rows:20}, function(result) {
+                _this.count = result.total;
+                var lisr_render = template('getcontent', result);
+                $('#listInfo').empty();
+                $('#listInfo').append(lisr_render);
             });
         },
         deleteIt:function(){
@@ -97,26 +84,25 @@ define(function (require, exports, module) {
                         valArr[i] = $(this).val();
                     });
                 var vals = valArr.join(',');// 转换为逗号隔开的字符串
-                console.log(vals);
-                if(vals!=""){
-                $.ajax({
-                    type : "get",
-                    content : "application/x-www-form-urlencoded;charset=UTF-8",
-                    url:"../exam/ deleteExam",      
-                    dataType : 'json',
-                    async : false,
-                    data:{
-                        examIds:vals
-                    },
-                    success:function(result){ 
-                        // console.log(result);
-                        // if(result.status ==1){
-                        //     pubMeth.alertInfo("alert-success","删除成功！");
-                        // }else{
-                        //     pubMeth.alertInfo("alert-danger","删除失败！");
-                        // }
-                    }
-                });
+                if(!vals) {
+                    $.ajax({
+                        type : "get",
+                        content : "application/x-www-form-urlencoded;charset=UTF-8",
+                        url:"../exam/ deleteExam",      
+                        dataType : 'json',
+                        async : false,
+                        data:{
+                            examIds:vals
+                        },
+                        success:function(result){ 
+                            // console.log(result);
+                            // if(result.status ==1){
+                            //     pubMeth.alertInfo("alert-success","删除成功！");
+                            // }else{
+                            //     pubMeth.alertInfo("alert-danger","删除失败！");
+                            // }
+                        }
+                    });
                 }else{
                     // pubMeth.alertInfo("alert-info","请先勾选删除项！");
                 }

@@ -51,10 +51,10 @@ module.exports = {
     plugins: [
         new CommonsChunkPlugin('common.js',['ui']),
         new CommonsChunkPlugin('util.js',['biz']),
-        new uglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
+        // new uglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // })
     ]
 };
