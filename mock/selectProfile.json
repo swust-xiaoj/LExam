@@ -1,0 +1,95 @@
+{
+    "total": 10,
+    "data": [
+        {
+            "className": "0",
+            "isStudent": 0,
+            "realName": "杨春明",
+            "studentNumber": null,
+            "term": null,
+            "umid": null,
+            "usrpfId": 1
+        },
+        {
+            "className": "0",
+            "isStudent": 1,
+            "realName": "万鸿飞",
+            "studentNumber": "20136302",
+            "term": null,
+            "umid": null,
+            "usrpfId": 2
+        },
+        {
+            "className": "0",
+            "isStudent": 1,
+            "realName": "ene",
+            "studentNumber": "fsdf",
+            "term": null,
+            "umid": null,
+            "usrpfId": 5
+        },
+        {
+            "className": "0",
+            "isStudent": 0,
+            "realName": "飞",
+            "studentNumber": null,
+            "term": null,
+            "umid": null,
+            "usrpfId": 6
+        },
+        {
+            "className": "0",
+            "isStudent": 1,
+            "realName": "haha",
+            "studentNumber": "1231",
+            "term": null,
+            "umid": null,
+            "usrpfId": 7
+        },
+        {
+            "className": "1",
+            "isStudent": 1,
+            "realName": "haha",
+            "studentNumber": "1231",
+            "term": null,
+            "umid": null,
+            "usrpfId": 8
+        },
+        {
+            "className": "haha",
+            "isStudent": 1,
+            "realName": "whf",
+            "studentNumber": "20136302",
+            "term": "2013",
+            "umid": 1,
+            "usrpfId": 9
+        },
+        {
+            "className": "haha",
+            "isStudent": 1,
+            "realName": "whf",
+            "studentNumber": "20136302",
+            "term": "2013",
+            "umid": 1,
+            "usrpfId": 10
+        },
+        {
+            "className": "haha",
+            "isStudent": 1,
+            "realName": "whf",
+            "studentNumber": "20136302",
+            "term": "2013",
+            "umid": 1,
+            "usrpfId": 11
+        },
+        {
+            "className": "haha",
+            "isStudent": 1,
+            "realName": "whf",
+            "studentNumber": "20136302",
+            "term": "2013",
+            "umid": 1,
+            "usrpfId": 12
+        }
+    ]
+}

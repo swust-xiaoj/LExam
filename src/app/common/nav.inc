@@ -13,6 +13,15 @@
 
 
     <ul class="nav navbar-right navbar-top-links">
+        <li>
+            <a href="index.html"><i class="fa fa-home fa-fw"></i> 主页</a>
+        </li>
+        <li>
+            <a href="users.html"><i class="fa fa-users fa-fw"></i> 在线用户</a>
+        </li>
+        <li>
+            <a href="faqs.html"><i class="fa fa-question-circle fa-fw"></i> FAQS</a>
+        </li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                 <i class="fa fa-user fa-fw"></i> admin <b class="caret"></b>
@@ -33,7 +42,7 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
-                <li class='active'>
+                <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 考试管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -61,10 +70,10 @@
                     <a href="#"><i class="fa fa-tasks fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.html">用户列表</a>
+                            <a href="users.html">用户列表</a>
                         </li>
                         <li>
-                            <a href="buttons.html">专业管理</a>
+                            <a href="majors.html">专业管理</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

@@ -42,6 +42,9 @@ define(function (require, exports, module) {
     };
     program.getProblemInfo(1);
     program.deleteIt();
+    $(".addProblem").click(function(){
+        window.location.href="question.html";
+    });
     
     $.jqPaginator('#pagination', {
         totalCounts : program.count,
