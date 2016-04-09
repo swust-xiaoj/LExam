@@ -4,6 +4,7 @@ define(function(require){
         EXAM_LIST: '../../mock/exam.json',
         PROBLEM_DELETE: '../../mock/deleteResult.json',
         EXAM_DELETE: '../../mock/deleteResult.json',
-        SELECTKNOWLEDGE: '../../mock/selectKnowLedge.json'
+        SELECTKNOWLEDGE: '../../mock/selectKnowLedge.json',
+        INSERT_PROBLEM: '../../mock/insertProblem.json'
     }
 })

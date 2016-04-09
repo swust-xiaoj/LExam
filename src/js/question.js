@@ -51,53 +51,48 @@ define(function (require, exports, module) {
                 })   
             },
             addProblem:function(id){
-                 $.ajax({
-                        type : "post",
-                        content : "application/x-www-form-urlencoded;charset=UTF-8",
-                        url:"../problem/insertProblem",     
-                        dataType : "json",
-                        async : false,
-                        data:{
-                            "problemInfo.title" :program.title,
-                            "problemInfo.createTime":program.date,
-                            "problemInfo.level" :program.level,
-                            "problemInfo.limitTime" :program.limitTime,
-                            "problemInfo.limitMemory" :program.limitMemory,
-                            "problemInfo.testdataNum" :program.testdataNum,
-                            "problemInfo.description" :program.description,
-                            "problemInfo.inputTip" :program.inputTip,
-                            "problemInfo.outputTip" :program.outputTip,
-                            "problemInfo.inputSample" :program.inputSample,
-                            "problemInfo.outputSample" :program.outputSample,
-                            "problemInfo.standardSource" : program.standardSource,
-                             know_id :program.knowName
-                        },
-                        success:function(result){ 
-                            console.log(result);
-                            if(result.status=='1' && id=="justSave"){
-                                // pubMeth.alertInfo("alert-success","添加成功");
-                                window.location.href="problem.html";
-                            }else if(result.status=='1' && id=="saveEdtor"){
-                                // pubMeth.alertInfo("alert-success","添加成功");
-                            }else if (result.status=='1' && id=="saveAdd"){
-                                 // pubMeth.alertInfo("alert-success","添加成功");
-                                 $(".ptitle").val("");
-                                 ue.setContent("");
-                                 $(".inputTip").val("");
-                                 $(".outputTip").val("");
-                                 $(".inputSample").val("");
-                                 $(".outputSample").val("");
-                                 $(".standardSource").val("");
-                            }
-                            else{
-                                // pubMeth.alertInfo("alert-warning","保存失败！");
-                            }
-                        },
-                        error:function(){
-                            // pubMeth.alertInfo("alert-warning","请求失败！");
-                        }
-                    });
-        },
+                var _this = this;
+                var data = {
+                    "problemInfo.title" :program.title,
+                    "problemInfo.createTime":program.date,
+                    "problemInfo.level" :program.level,
+                    "problemInfo.limitTime" :program.limitTime,
+                    "problemInfo.limitMemory" :program.limitMemory,
+                    "problemInfo.testdataNum" :program.testdataNum,
+                    "problemInfo.description" :program.description,
+                    "problemInfo.inputTip" :program.inputTip,
+                    "problemInfo.outputTip" :program.outputTip,
+                    "problemInfo.inputSample" :program.inputSample,
+                    "problemInfo.outputSample" :program.outputSample,
+                    "problemInfo.standardSource" : program.standardSource,
+                     know_id :program.knowName
+                };
+                utils.ajax(url.INSERT_PROBLEM, data, function(result) {
+                    if(result.status=='1' && id=="justSave") {
+                        utils.setTips('success', '添加成功！');
+                        window.location.href="problem.html";
+                    }else if(result.status=='1' && id=="saveEdtor") {
+                        utils.setTips('success', '添加成功！');
+                    }else if (result.status=='1' && id=="saveAdd") {
+                        utils.setTips('success', '添加成功！');
+                    }
+                    else {
+                        utils.setTips('warning', '保存失败！');
+                    }
+                }, {type:'post',errorCallback: function() {
+                    utils.setTips('warning', '请求失败！');
+                    _this.clearFormData();
+                }});
+            },
+            clearFormData: function (){
+                $(".ptitle").val("");
+                ue.setContent("");
+                $(".inputTip").val("");
+                $(".outputTip").val("");
+                $(".inputSample").val("");
+                $(".outputSample").val("");
+                $(".standardSource").val(""); 
+            }
         getProById:function(){
              $.ajax({
                 type : "get",
