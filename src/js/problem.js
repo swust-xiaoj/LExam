@@ -42,6 +42,8 @@ define(function (require, exports, module) {
     };
     program.getProblemInfo(1);
     program.deleteIt();
+    utils.toggleCheck('check_list', 'listInfo');
+    
     $(".addProblem").click(function(){
         window.location.href="question.html";
     });

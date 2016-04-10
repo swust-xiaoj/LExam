@@ -105,6 +105,16 @@ define(function(require){
             return sFormation.replace(regex, function(match) {
                  return eles[match];
             });   
+        },
+        toggleCheck: function(parClass, childId) {
+            $('.' + parClass).click(function() {
+                if(this.checked) {    
+                    $('#'+ childId).find("input[type='checkbox']").prop("checked", true);      
+                }
+                else {    
+                   $('#'+ childId).find("input[type='checkbox']").prop("checked", false);
+                }    
+            });
         }
     }
 })

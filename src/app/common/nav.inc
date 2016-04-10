@@ -49,7 +49,7 @@
                             <a href="exam.html">试卷</a>
                         </li>
                         <li>
-                            <a href="morris.html">相似度检测结果</a>
+                            <a href="##">相似度检测结果</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -61,7 +61,7 @@
                             <a href="problem.html">题库列表</a>
                         </li>
                         <li>
-                            <a href="buttons.html">用户提交</a>
+                            <a href="##">用户提交</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -73,7 +73,7 @@
                             <a href="users.html">用户列表</a>
                         </li>
                         <li>
-                            <a href="majors.html">专业管理</a>
+                            <a href="major.html">专业管理</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -82,10 +82,10 @@
                     <a href="#"><i class="fa fa-copy fa-fw"></i> 考场管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.html">XXXX</a>
+                            <a href="##">XXXX</a>
                         </li>
                         <li>
-                            <a href="buttons.html">XXXX</a>
+                            <a href="##">XXXX</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -94,10 +94,10 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> 系统设置<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.html">XXXX</a>
+                            <a href="##">XXXX</a>
                         </li>
                         <li>
-                            <a href="buttons.html">XXXX</a>
+                            <a href="##">XXXX</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

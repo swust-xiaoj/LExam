@@ -5,6 +5,55 @@ define(function (require, exports, module) {
     var template = require('artTemplate');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
+    var modal = require('ui/modalDialog.js');
+
+    var params = {
+        id: 'user',
+        title: '用户信息',
+        body: '<form class="form-horizontal">'
+                +  '<div class="form-group">'
+                +    '<label class="col-sm-2 control-label">学号</label>'
+                +    '<div class="col-sm-10">'
+                +      '<input type="text" class="form-control studentNum" placeholder="num">'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label class="col-sm-2 control-label">姓名</label>'
+                +    '<div class="col-sm-10">'
+                +      '<input type="text" class="form-control realName" />'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label class="col-sm-2 control-label">班级</label>'
+                +    '<div class="col-sm-10">'
+                +        '<input type="text" class="form-control className" />'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label class="col-sm-2 control-label">入学年份</label>'
+                +    '<div class="col-sm-10">'
+                +        '<input type="text" class="form-control term" />'
+                +    '</div>'
+                +  '</div>'
+                +  '<div class="form-group">'
+                +    '<label class="col-sm-2 control-label">学院</label>'
+                +    '<div class="col-sm-10">'
+                +         '<input type="text" class="form-control umid" />'
+                +    '</div>'
+                +  '</div>'
+                +'</form>',
+        cancelText:'关闭',
+        confirmText:'保存',
+        cancel: function(){
+            // cancel funtion
+        },
+        confirm:function(){
+            program.addUser();
+            $('#user').modal('hide'); 
+        }
+    };
+    var newModal  = new modal(params);
+    newModal.init();
     
     var program = {
         page:'1',
@@ -92,6 +141,7 @@ define(function (require, exports, module) {
     };
 
     program.selectProfile();
+    utils.toggleCheck('check_list', 'listInfo');
     $(".deleteUser").click(function(){
         var valArr = [];
         $(":checkbox[name='title']:checked").each(function(i) {
@@ -107,14 +157,12 @@ define(function (require, exports, module) {
     });
     
     $(".addUser").click(function(){
+        $('#user').modal('show'); 
         var id = this.id;
         if(id){
             program.userId = id;
             program.selectById();
         }
-        $('#user').modal({
-             backdrop : 'static'
-        });
     });
     $(".closebutton").click(function(){
         program.clearValue();
@@ -130,6 +178,19 @@ define(function (require, exports, module) {
         }else{
             program.addUser();
             window.location.reload();
+        }
+    });
+    $.jqPaginator('#pagination', {
+        totalCounts : program.count,
+        visiblePages: 5,
+        currentPage: 1,
+        pageSize: 20,
+        first: '<li class="first"><a href="javascript:;">首页</a></li>',
+        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (num, type) {
+            if(type == 'init') {return;}
+            program.getMajor();
         }
     });
 });

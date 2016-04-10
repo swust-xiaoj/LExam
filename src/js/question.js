@@ -187,6 +187,8 @@ define(function (require, exports, module) {
         };
         // page init  
         program.getCourseName();
+        utils.toggleCheck('check_list', 'listInfo');
+
         var ue = UE.getEditor('description', {
            initialFrameWidth:550 ,//初始化编辑器宽度,默认1000
            initialFrameHeight:300  //初始化编辑器高度,默认320

@@ -101,6 +101,7 @@ define(function (require, exports, module) {
     };
     program.getExamInfo(1);
     program.deleteIt();
+    utils.toggleCheck('check_list', 'listInfo');
     
     $(".addexam").click(function(){
         $('#addModal').modal('show'); 

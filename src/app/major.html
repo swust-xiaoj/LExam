@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<!-- <link rel="stylesheet" type="text/css" href="../css/lib/datepicker.css"> -->
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                        <div class="tips"></div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success add">
+                                <span class="glyphicon glyphicon-plus"></span>添加专业
+                            </button>
+                            <button type="button" class="btn btn-warning delete">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除专业
+                            </button>
+                        </div>
+                    </div>
+                <table class="table table-bordered table-hover table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="check_list" />全选</th>
+                            <th>序号</th>
+                            <th>专业名称</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listInfo">
+                    </tbody>
+                </table>
+                <script id="getcontent" type="text/html">
+                    {{each list as value i}} 
+                        <tr>
+                            <th><input type="checkbox" value="{{value.umid}}" name="title"/></th>
+                            <td>{{++i}}</td>
+                            <td>{{value.majorName}}</td>
+                        </tr>
+                 {{/each}}
+                </script>
+                <div class="row col-md-offset-8">
+                    <ul class="pagination" id="pagination"></ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/major.js')
+</script>
+</body>
+</html>

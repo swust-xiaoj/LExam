@@ -19,7 +19,9 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
     minifyCSS = require('gulp-minify-css'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    fs = require('fs'),
+    path = require('path');
 
 var host = {
     path: 'lexam/',
@@ -113,9 +115,21 @@ gulp.task('watch', function (done) {
 // });
 gulp.task('server',function(){
     connect.server({
-      hostname: '100.67.190.185',//配置你的主机ip
-      port: 8090,//配置你的端口号
-      livereload: true
+        middleware: function(connect, options) {
+        return [
+            function(req, res, next) {
+                var filepath = path.join(options.root, req.url);
+                if ('POSTPUTDELETE'.indexOf(req.method.toUpperCase()) > -1
+                    && fs.existsSync(filepath) && fs.statSync(filepath).isFile()) {
+                    return res.end(fs.readFileSync(filepath));
+                }
+                return next();
+               }
+            ];
+        },
+        hostname: '127.0.0.1',//配置你的主机ip
+        port: 8090,//配置你的端口号
+        livereload: true
     });
 });
 
