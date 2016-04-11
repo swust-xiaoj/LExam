@@ -137,7 +137,7 @@ gulp.task('open', function (done) {
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
-            uri: 'http://localhost:3000/app'
+            uri: 'http://localhost:8090/dist/app/'
         }))
         .on('end', done);
 });
@@ -169,4 +169,4 @@ gulp.task('fileinclude', function (done) {
 });
 
 gulp.task('default', ['server','copy:js','copy:images','less','copy:css','fileinclude', 'md5:css', 'md5:js']);
-gulp.task('dev', ['server','copy:images','copy:js', 'fileinclude','less','build-js','copy:css','watch']);
+gulp.task('dev', ['server','copy:images','copy:js', 'fileinclude','less','build-js','copy:css','watch','open']);

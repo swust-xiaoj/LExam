@@ -54,7 +54,7 @@ define(function(require){
          */
         setTips: function (className, tipsText) {
             $('.tips').html('');
-            $('.tips').html('<div class="alert alert-'+ className +' alert-dismissable">'
+            $('.tips').html('<div class="alert alert-'+ className +' alert-dismissable fade in">'
                 + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
                 + tipsText + '</div>');
         },
