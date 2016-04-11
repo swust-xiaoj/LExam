@@ -35,7 +35,6 @@ module.exports = {
     resolve: {
         alias: {
             jquery: srcDir + "/js/lib/jquery.min.js",
-            // core: srcDir + "/js/core",
             ui: srcDir + "/js/ui",
             biz: srcDir + "/js/biz",
             paginator : srcDir + '/js/lib/jqPaginator.js',
@@ -44,7 +43,7 @@ module.exports = {
             ueditor_config : srcDir + '/js/lib/ueditor/ueditor.config.js',
             ueditor: srcDir + '/js/lib/ueditor/ueditor.all.min.js',
             metisMenu: srcDir + '/js/lib/metisMenu.min.js',
-            datepicker: srcDir + '/js/lib/bootstrap-datepicker.js',
+            datetimepicker: srcDir + '/js/lib/bootstrap-datetimepicker.min.js',
             startmin: srcDir + '/js/lib/startmin.js'
         }
     },

@@ -7,6 +7,9 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../js/lib/metisMenu.min.js"></script>
 
+<!-- datetimepicker -->
+<script src="../js/lib/bootstrap-datetimepicker.min.js"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="../js/lib/startmin.js"></script>
 

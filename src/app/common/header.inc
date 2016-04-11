@@ -8,6 +8,7 @@
     <title>Lexam</title>
     <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="../css/lib/metisMenu.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/lib/datepicker.min.css">
     <link href="../css/lib/startmin.css" rel="stylesheet">
     <link href="../css/lib/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/style.min.css">
