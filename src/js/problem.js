@@ -5,6 +5,7 @@ define(function (require, exports, module) {
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
     var template = require('artTemplate');
+    var linkageMenu = require('biz/linkageMenu.js');
     var program = {};
 
     program = {
@@ -13,6 +14,11 @@ define(function (require, exports, module) {
             var _this = this;
             utils.ajax(url.PROBLEM_LIST, {page:page,rows:20}, function(result) {
                 _this.count = result.total;
+                for(var i = 0, len = result.data.length; i < len; i++) {
+                    result.data[i].courseName = result.course[i].knowName || '';
+                    result.data[i].knowName = result.knowledge[i].knowName || '';
+                    (result.data[i].totalSubmit === 0 || result.data[i].acedNum === 0) ? result.data[i].difficulty = 0 : result.data[i].difficulty = (result.data[i].acedNum / result.data[i].totalSubmit).toFixed(3)
+                }
                 var lisr_render = template('getcontent', result);
                 $('#listInfo').empty();
                 $('#listInfo').append(lisr_render);
@@ -43,10 +49,15 @@ define(function (require, exports, module) {
     program.getProblemInfo(1);
     program.deleteIt();
     utils.toggleCheck('check_list', 'listInfo');
+    linkageMenu.setCourse();
     
     $(".addProblem").click(function(){
         window.location.href="question.html";
     });
+
+    $('.courseName').on('change', function(){
+        linkageMenu.onchange();
+    })
     
     $.jqPaginator('#pagination', {
         totalCounts : program.count,

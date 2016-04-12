@@ -115,6 +115,24 @@ define(function(require){
                    $('#'+ childId).find("input[type='checkbox']").prop("checked", false);
                 }    
             });
+        },
+        adjustDataStru: function (data) {
+            var dataObj = {};
+            var knowledge = [];
+            var course = [];
+            if(!data) {
+                for(var i = 0, len = data.length; i < len; i++){
+                    if(!data[i].isCourse) {
+                        course.push({value: data[i].knowId, text: data[i].knowName, parentId: data[i].parentId});
+                    }
+                    else {
+                        knowledge.push({value: data[i].knowId, text: data[i].knowName});
+                    }
+                }
+            }
+            dataObj['course'] = course;
+            dataObj['knowledge'] = knowledge;
+            return dataObj;
         }
     }
 })

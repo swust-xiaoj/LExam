@@ -133,7 +133,7 @@ gulp.task('server',function(){
     });
 });
 
-gulp.task('open', function (done) {
+gulp.task('open', ['copy:images','copy:js', 'fileinclude','less','build-js','copy:css'], function (done) {
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
