@@ -14,6 +14,7 @@ define(function(require){
         DELETEPROFILE: '../../mock/result.json',
         UPDATE_PROFILE: '../../mock/result.json',
         INSERT_PROFILE: '../../mock/result.json',
-        MAJOR_LIST: '../../mock/majorList.json'
+        MAJOR_LIST: '../../mock/majorList.json',
+        LOGIN: '../../mock/loginResult.json'
     }
 })
