@@ -10,6 +10,8 @@
 <!-- datetimepicker -->
 <script src="../js/lib/bootstrap-datetimepicker.min.js"></script>
 
+<script src="../js/lib/validator.min.s"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="../js/lib/startmin.js"></script>
 

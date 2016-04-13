@@ -41,6 +41,7 @@ define(function(require){
 
     // dom events
     $('#login-btn').on('click', function() {
+        $('#myForm').validator()
         program.login();
     })
 })
