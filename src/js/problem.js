@@ -10,6 +10,7 @@ define(function (require, exports, module) {
 
     program = {
         title:'',
+        removeList:[],
         getProblemInfo: function(page) {
             var _this = this;
             utils.ajax(url.PROBLEM_LIST, {page:page,rows:20}, function(result) {
@@ -25,29 +26,34 @@ define(function (require, exports, module) {
             });
         },
         deleteIt: function() {
-            $('.delete').on('click', function (e) {
-                var valArr = [];
-                $(":checkbox[name='title']:checked").each(function(i) {
-                    valArr[i] = $(this).val();
-                 });
-                var vals = valArr.join(',');
-                if(vals){
-                    utils.ajax(url.PROBLEM_DELETE, {examId: vals}, function(result) {
-                        if (result.status === 1) {
-                            utils.setTips('success', '删除成功！');
-                        }
-                        else {
-                            utils.setTips('danger', '删除失败！')
-                        }
-                    })
-                }else{
-                    utils.setTips('info', '请先勾选删除项！');
-                }
-            }); 
+            var valArr = [];
+            var _this = this;
+            $(":checkbox[name='title']:checked").each(function(i) {
+                _this.removeList.push($(this).parents().eq(1));
+                valArr[i] = $(this).val();
+             });
+            var vals = valArr.join(',');
+            if(vals){
+                utils.ajax(url.PROBLEM_DELETE, {examId: vals}, function(result) {
+                    if (result.status === 1) {
+                        utils.setTips('success', '删除成功！');
+                        _this.removeEle();
+                    }
+                    else {
+                        utils.setTips('danger', '删除失败！')
+                    }
+                })
+            }else{
+                utils.setTips('info', '请先勾选删除项！');
+            }
+        },
+        removeEle: function(){
+            $(this.removeList).each(function(){
+                $(this).remove()
+            })
         }
     };
     program.getProblemInfo(1);
-    program.deleteIt();
     utils.toggleCheck('check_list', 'listInfo');
     linkageMenu.setCourse();
     
@@ -57,7 +63,10 @@ define(function (require, exports, module) {
 
     $('.courseName').on('change', function(){
         linkageMenu.onchange();
-    })
+    });
+    $('.delete').on('click', function (e) {
+        program.deleteIt();
+    });
     
     $.jqPaginator('#pagination', {
         totalCounts : program.count,

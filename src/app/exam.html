@@ -46,7 +46,7 @@
                 <script id="getcontent" type="text/html">
                     {{each data as value i}} 
                            <tr>
-                            <th><input type="checkbox" value="{{value.examId}}" name="title"/></th>
+                            <td><input type="checkbox" value="{{value.examId}}" name="title"/></td>
                             <td>{{++i}}</td>
                             <td><a href="editExam.html?id={{value.examId}}" class="title">{{value.title}}</a></td>
                             <td>{{value.endTime}}</td>
