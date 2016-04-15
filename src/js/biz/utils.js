@@ -133,6 +133,14 @@ define(function(require){
             dataObj['course'] = course;
             dataObj['knowledge'] = knowledge;
             return dataObj;
+        },
+        initDateTimePicker: function(className) {
+            $('.' + className).datetimepicker({
+                format: 'yyyy-mm-dd hh:ii:ss',
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: "bottom-left"
+             });
         }
     }
 })
