@@ -16,8 +16,10 @@ var gulp = require('gulp'),
     rimraf = require('gulp-rimraf'),
     spriter = require('gulp-css-spriter'),
     base64 = require('gulp-css-base64'),
-    webpack = require('webpack'),
-    webpackConfig = require('./webpack.config.js'),
+    seajsconcat = require('gulp-seajs-concat'),
+    transport = require('gulp-seajs-transport'),
+    // webpack = require('webpack'),
+    // webpackConfig = require('./webpack.config.js'),
     minifyCSS = require('gulp-minify-css'),
     connect = require('gulp-connect'),
     fs = require('fs'),
@@ -32,7 +34,34 @@ var host = {
 var browser = os.platform() === 'linux' ? 'Google chrome' : (
     os.platform() === 'darwin' ? 'Google chrome' : (
     os.platform() === 'win32' ? 'chrome' : 'firefox'));
-var pkg = require('./package.json');
+// var pkg = require('./package.json');
+// gulp.task('build-js', function(){
+//     return gulp.src('src/js/**/*.js')
+//     .pipe(transport())
+    // .pipe(seajsconcat({
+    //     alias: {
+    //         'jquery': "lib/jquery.min.js",
+    //         'ui': "ui",
+    //         'biz': "biz",
+    //         'paginator' : 'lib/jqPaginator.js',
+    //         'artTemplate' : 'lib/artTemplate.js',
+    //         'bootstrap' : 'lib/bootstrap.min.js',
+    //         'ueditor_config' : 'lib/ueditor/ueditor.config.js',
+    //         'ueditor': 'lib/ueditor/ueditor.all.min.js',
+    //         'metisMenu': 'lib/metisMenu.min.js',
+    //         'datetimepicker': 'lib/bootstrap-datetimepicker.min.js',
+    //         'startmin': 'lib/startmin.js'
+    //     },
+    //     base: '../js/'
+    // }))
+    // .pipe(uglify())
+//     .pipe(gulp.dest('./dist'));
+// })
+gulp.task('build-js', function(){
+    gulp.src('src/js/biz/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+})
 
 // copy images
 gulp.task('copy:images', function (done) {
@@ -58,10 +87,10 @@ gulp.task('copy:css', function(done) {
 
 
 // copy static js files
-gulp.task('copy:js', function() {
-    gulp.src(['src/js/**/*'])
-    .pipe(gulp.dest('dist/js'));
-});
+// gulp.task('copy:js', function() {
+//     gulp.src(['src/js/**/*'])
+//     .pipe(gulp.dest('dist/js'));
+// });
 
 //将js加上8位md5,并修改html中的引用路径，该动作依赖build-js
 gulp.task('md5:js', ['build-js'], function (done) {
@@ -142,20 +171,20 @@ gulp.task('open', ['copy:images','copy:js', 'fileinclude','less','build-js','cop
         .on('end', done);
 });
 
-var myDevConfig = Object.create(webpackConfig);
+// var myDevConfig = Object.create(webpackConfig);
 
-var devCompiler = webpack(myDevConfig);
+// var devCompiler = webpack(myDevConfig);
 
 //引用webpack对js进行操作
-gulp.task("build-js", ['fileinclude'], function(callback) {
-    devCompiler.run(function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack:build-js", err);
-        gutil.log("[webpack:build-js]", stats.toString({
-            colors: true
-        }));
-        callback();
-    });
-});
+// gulp.task("build-js", ['fileinclude'], function(callback) {
+//     devCompiler.run(function(err, stats) {
+//         if(err) throw new gutil.PluginError("webpack:build-js", err);
+//         gutil.log("[webpack:build-js]", stats.toString({
+//             colors: true
+//         }));
+//         callback();
+//     });
+// });
 //用于在html文件中直接include文件
 gulp.task('fileinclude', function (done) {
     gulp.src(['src/app/*.html'])
