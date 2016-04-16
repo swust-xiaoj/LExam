@@ -56,7 +56,7 @@ define(function(require){
             $('.tips').html('');
             $('.tips').html('<div class="alert alert-'+ className +' alert-dismissable fade in">'
                 + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
-                + tipsText + '</div>');
+                + tipsText + '</div>').fadeIn(800).fadeOut(3000);
         },
         /*
          * get url params

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                       <div class="tips"></div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success addknow">
+                                <span class="glyphicon glyphicon-plus"></span>添加
+                            </button>
+                            <button type="button" class="btn btn-info deleteknow">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control searTitle"
+                                    placeholder=""> <span
+                                    class="input-group-btn">
+                                    <button class="btn btn-primary search" type="button">查询</button>
+                                </span>
+                            </div>
+                        </div>
+                       <div class="content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="getcontent" type="text/html">
+        {{each data as value i}}
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+              </div>
+              <div class="panel-body">
+                Panel content
+              </div>
+            </div>
+        {{/each}}
+    </script>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/knowledge.js')
+</script>
+</body>
+</html>
