@@ -29,8 +29,8 @@
                                 </span>
                             </div>
                         </div>
-                       <div class="content"></div>
                     </div>
+                    <div class="content" id="listInfo"></div>
                 </div>
             </div>
         </div>
@@ -39,10 +39,12 @@
         {{each data as value i}}
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title">{{value.course}}</h3>
               </div>
               <div class="panel-body">
-                Panel content
+              {{each value.knows as knows}}
+                <button class="btn btn-primary knowPoint" type="button">{{knows.text}} <span class="badge">{{knows.sum}}</span></button>
+              {{/each}}
               </div>
             </div>
         {{/each}}
