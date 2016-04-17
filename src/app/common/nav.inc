@@ -46,7 +46,7 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 考试管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="exam.html">试卷</a>
+                            <a href="exam.html">考试列表</a>
                         </li>
                         <li>
                             <a href="##">相似度检测结果</a>
@@ -61,7 +61,7 @@
                             <a href="problem.html">题库列表</a>
                         </li>
                         <li>
-                            <a href="##">用户提交</a>
+                            <a href="userSubmits.html">用户提交</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

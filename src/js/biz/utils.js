@@ -6,6 +6,7 @@
 
 define(function(require){
     require('jquery');
+    var constant = require('./constant.js');
 
     //小于 10 的数前面补 0
     function paddingZero(val) {
@@ -141,6 +142,22 @@ define(function(require){
                 todayBtn: true,
                 pickerPosition: "bottom-left"
              });
+        },
+        initJudgeResult: function() {
+            var r = constant.JUDGERESULT;
+            var tpl = ['<option>----------Result----------</option>'];
+            $.each(r, function(i){
+                tpl.push('<option value=' + (i - 1) + '>' + r[i] + '</option>');
+            });
+            $('.judge-result').html(tpl.join(''));
+        },
+        initCompiler: function(){
+            var c = constant.COMPILER;
+            var tpl = ['<option>---------Compiler---------</option>'];
+            $.each(c, function(i){
+                tpl.push('<option value=' + (i + 1 ) + '>' + c[i] + '</option>');
+            });
+            $('.compiler').html(tpl.join(''));
         }
     }
 })

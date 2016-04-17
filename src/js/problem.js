@@ -21,8 +21,7 @@ define(function (require, exports, module) {
                     (result.data[i].totalSubmit === 0 || result.data[i].acedNum === 0) ? result.data[i].difficulty = 0 : result.data[i].difficulty = (result.data[i].acedNum / result.data[i].totalSubmit).toFixed(3)
                 }
                 var lisr_render = template('getcontent', result);
-                $('#listInfo').empty();
-                $('#listInfo').append(lisr_render);
+                $('#listInfo').html(lisr_render);
             });
         },
         deleteIt: function() {

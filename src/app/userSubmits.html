@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                       <div class="tips"></div>
+                       <form class="filter_area form-inline">
+                       <div class="form-group">
+                           <select class="judge-result form-control"></select>
+                           <select class="compiler form-control"></select>
+                           <input class="form-control" type="text" placeholder="username">
+                           <div class="input-group">
+                                <input class="form-control" type="text" placeholder="problem">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary search" type="button">查询</button>
+                                </span>
+                           </div>
+                       </div>
+                       </form>
+                    </div>
+                    <table class="table table-bordered table-hover table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>Run ID</th>
+                                <th>Problem</th>
+                                <th>Username</th>
+                                <th>Result</th>
+                                <th>Memory[KB]</th>
+                                <th>Time[MS]</th>
+                                <th>Complier</th>
+                                <th>Length[B]</th>
+                                <th>Submit Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listInfo">
+                        </tbody>
+                    </table>
+                    <script id='getcontent' type="text/html">
+                        {{each data as data i}}
+                        <tr>
+                            <td>{{data.id}}</td>
+                            <td><a href="problemDetail.html?id={{data.problemid}}">{{data.problemid}}</a></td>
+                            <td><a href="##">{{data.username}}</a></td>
+                            <td><span class='label label-{{data.rstClass}}'>{{data.rstText}}</span></td>
+                            <td>{{data.memory}}</td>
+                            <td>{{data.time}}</td>
+                            <td>{{data.compiler}}</td>
+                            <td>{{data.length}}</td>
+                            <td>{{data.submit_time}}</td>
+                        </tr>
+                        {{/each}}
+                    </script>
+                    <div class="row col-md-offset-8">
+                        <ul class="pagination" id="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/userSubmits.js')
+</script>
+</body>
+</html>

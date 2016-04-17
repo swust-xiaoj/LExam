@@ -70,7 +70,7 @@
                 <script id="getcontent" type="text/html">
                     {{each data as data i}} 
                         <tr>
-                            <th><input type="checkbox" value="{{data.probId}}" name="title"/></th>
+                            <td><input type="checkbox" value="{{data.probId}}" name="title"/></th>
                             <td>{{++i}}</td>
                             <td><a href="question.html?id={{data.probId}}" class="title">{{data.title}}</a></td>
                             <td>{{data.difficulty}}</td>
