@@ -2,6 +2,7 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('paginator');
+    require('validate');
     var template = require('artTemplate');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
@@ -10,35 +11,35 @@ define(function (require, exports, module) {
     var params = {
         id: 'user',
         title: '用户信息',
-        body: '<form class="form-horizontal">'
+        body: '<form id="userInfo" method="post" action="" class="form-horizontal">'
                 +  '<div class="form-group">'
                 +    '<label class="col-sm-2 control-label">学号</label>'
-                +    '<div class="col-sm-10">'
-                +      '<input type="text" class="form-control studentNum" placeholder="num">'
+                +    '<div class="col-sm-5">'
+                +      '<input type="text" name="number" id="number" class="form-control studentNum" placeholder="num">'
                 +    '</div>'
                 +  '</div>'
                 +  '<div class="form-group">'
                 +    '<label class="col-sm-2 control-label">姓名</label>'
-                +    '<div class="col-sm-10">'
-                +      '<input type="text" class="form-control realName" />'
+                +    '<div class="col-sm-5">'
+                +      '<input type="text" name="userName" id="userName" class="form-control realName">'
                 +    '</div>'
                 +  '</div>'
                 +  '<div class="form-group">'
                 +    '<label class="col-sm-2 control-label">班级</label>'
-                +    '<div class="col-sm-10">'
-                +        '<input type="text" class="form-control className" />'
+                +    '<div class="col-sm-5">'
+                +        '<input type="text" name="userClass" id="userClass" class="form-control className">'
                 +    '</div>'
                 +  '</div>'
                 +  '<div class="form-group">'
                 +    '<label class="col-sm-2 control-label">入学年份</label>'
-                +    '<div class="col-sm-10">'
-                +        '<input type="text" class="form-control term" />'
+                +    '<div class="col-sm-5">'
+                +        '<input type="text" name="inYear" id="inYear" class="form-control term">'
                 +    '</div>'
                 +  '</div>'
                 +  '<div class="form-group">'
                 +    '<label class="col-sm-2 control-label">学院</label>'
-                +    '<div class="col-sm-10">'
-                +         '<input type="text" class="form-control umid" />'
+                +    '<div class="col-sm-5">'
+                +         '<input type="text" name="academy" id="academy" class="form-control umid">'
                 +    '</div>'
                 +  '</div>'
                 +'</form>',
@@ -48,8 +49,11 @@ define(function (require, exports, module) {
             // cancel funtion
         },
         confirm:function(){
-            program.addUser();
-            $('#user').modal('hide'); 
+            $('#userInfo').submit();
+            if($('form').valid()){
+                $('#user').modal('hide'); 
+                program.addUser();
+            }
         }
     };
     var newModal  = new modal(params);
@@ -137,10 +141,39 @@ define(function (require, exports, module) {
                     utils.setTips('danger', '保存失败！');
                 }
             }, {type: 'post'});
+        },
+        validateForm: function() {
+            var rules = {
+                number: {
+                    required: true,
+                    digits: true
+                },
+                userName: "required",
+                userClass: "required",
+                inYear: {
+                    required: true,
+                    date: true
+                },
+                academy: "required"
+            };
+            var messages = {
+                number: {
+                    required: "请输入你的学号",
+                    digits: "学号只包含数字"
+                },
+                userName: "请输入你的姓名",
+                userClass: "请输入你的班级",
+                inYear:{
+                    date: "日期格式不正确",
+                    required: "请输入你的入学年份" 
+                } ,
+                academy: "请输入你的学院"
+            }
+            utils.formValidate('#userInfo',rules, messages);
         }
     };
-
     program.selectProfile();
+    program.validateForm()
     utils.toggleCheck('check_list', 'listInfo');
     $(".deleteUser").click(function(){
         var valArr = [];

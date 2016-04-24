@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                       <div class="tips"></div>
+                       <div class="col-md-3">
+                            <button type="button" class="btn btn-success addexam">
+                                <span class="fa fa-key"></span> 批量解锁
+                            </button>
+                       </div>
+                    </div>
+                    <table class="table table-bordered table-hover table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="check_list" />全选</th>
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>姓名</th>
+                            <th>班级</th>
+                            <th>上次登陆时间</th>
+                            <th>上次登陆IP</th>
+                            <th>本次请求登陆IP</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listInfo">
+                    </tbody>
+                </table>
+                <script id="getcontent" type="text/html">
+                    {{each data as value i}} 
+                           <tr>
+                            <td><input type="checkbox" value="{{value.userId}}" name="title"/></td>
+                            <td>{{++i}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td>{{value.loginIp}}</td>
+                            <td><button class='btn btn-primary btn-xs'><span class="fa fa-key"></span> 解锁</button></td>
+                           </tr>
+                    {{/each}}
+                </script>
+                <div class="row col-md-offset-8">
+                    <ul class="pagination" id="pagination"></ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/unlock.js')
+</script>
+</body>
+</html>

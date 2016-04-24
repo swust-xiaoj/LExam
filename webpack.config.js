@@ -38,6 +38,7 @@ module.exports = {
             ui: srcDir + "/js/ui",
             biz: srcDir + "/js/biz",
             paginator : srcDir + '/js/lib/jqPaginator.js',
+            validate: srcDir + '/js/lib/jquery.validate.js',
             artTemplate : srcDir + '/js/lib/artTemplate.js',
             bootstrap : srcDir + '/js/lib/bootstrap.min.js',
             ueditor_config : srcDir + '/js/lib/ueditor/ueditor.config.js',

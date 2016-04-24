@@ -59,7 +59,7 @@ define(function (require, exports, module) {
     $('.delete').on('click', function (e) {
         program.deleteIt();
     });
-     $.jqPaginator('#pagination', {
+    $.jqPaginator('#pagination', {
         totalCounts : program.count,
         visiblePages: 5,
         currentPage: 1,

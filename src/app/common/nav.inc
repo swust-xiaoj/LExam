@@ -19,6 +19,10 @@
         <li>
             <a href="users.html"><i class="fa fa-users fa-fw"></i> 在线用户</a>
         </li>
+
+        <li>
+            <a href="unlock.html"><i class="fa fa-unlock fa-fw"></i> 登陆请求</a>
+        </li>
         <li>
             <a href="faqs.html"><i class="fa fa-question-circle fa-fw"></i> FAQS</a>
         </li>
@@ -106,7 +110,7 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> 系统设置<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="##">XXXX</a>
+                            <a href="syssetting.html">系统参数设置</a>
                         </li>
                         <li>
                             <a href="##">XXXX</a>

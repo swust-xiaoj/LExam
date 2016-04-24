@@ -7,7 +7,7 @@ define(function (require, exports, module) {
         faqs:'',
         index:'',
         getWebInfo:function(){
-            utils.ajax(url.SELECT_SITEINFO,{},function(result) {
+            utils.ajax(url.SELECT_SITEINFO, {}, function(result) {
                 for(var i = 0, len = result.data.length; i < len; i++) {
                     if(result.data[i].name.toLowerCase()=="faqs") {
                         program.faqs = result.data[i].value;

@@ -20,6 +20,8 @@ define(function(require){
         INSERT_PROFILE: '../../mock/result.json',
         MAJOR_LIST: '../../mock/majorList.json',
         LOGIN: '../../mock/loginResult.json',
-        SELECT_SUBMIT: '../../mock/usersubmit.json'
+        SELECT_SUBMIT: '../../mock/usersubmit.json',
+        UNLOCKLIST: '../../mock/unlocklist.json',
+        UNLOCKIT: '../../mock/result.json'
     }
 })
