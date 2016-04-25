@@ -2,11 +2,11 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('datetimepicker');
+    var linkageMenu = require('biz/linkageMenu.js');
     var template = require('artTemplate');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
 
-    utils.initDateTimePicker('datepickers');
     var program ={
         title: '',
         startTime: '',
@@ -20,35 +20,12 @@ define(function (require, exports, module) {
                                   '<option value="0">Easy</option>',
                                   '<option value="1">Normal</option>',
                                   '<option value="2">Hard</option></select></td>',
-                                '<td><input class="form-control datepickers"  type="text"  readonly /></td>',
-                                '<td><input class="form-control datepickers"  type="text"  readonly /></td>',
-                                '<td><input class="form-control"  type="text"  value="10" /></td>',
-                                '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td></tr>'
+                              '<td><input class="form-control datepickers protime"  type="text"  readonly /></td>',
+                              '<td><input class="form-control"  type="text"  value="10" /></td>',
+                              '<td><span class="badge">0</span></td>',
+                              '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td></tr>'
             ].join('');
             $('#quetemple').append(tplArr);
-        },
-        appendCourseAndKnowledge: function(){
-            var _this = this;
-            utils.ajax(url.SELECTKNOWLEDGE, {}, function(result) {
-                var len = result.total;
-                var curId = '', courseHTML = [], knowHTML = [], flag = 0;
-                for(var i = 0; i < len; i++) {
-                    if (result.data[i].isCourse === 1) {
-                        if(!flag){
-                            curId = result.data[i].knowId;
-                            flag = 1;                        
-                        }
-                        courseHTML.push('<option value=' + result.data[i].knowId + '>' + result.data[i].knowName + '</option>');
-                    }
-                }
-                for(var i = 0; i < len; i++){
-                    if (result.data[i].parentId === curId) {
-                        knowHTML.push("<option value="+result.data[i].knowId+">"+result.data[i].knowName+"</option>");
-                    }                        
-                }
-                $('.courseName').html(courseHTML.join(''));
-                $('.knowName').html(knowHTML.join(''));
-            })
         },
         getFormData: function() {
             this.title = $('.examTitle').val();
@@ -153,7 +130,9 @@ define(function (require, exports, module) {
             }
         }
     };
-    program.appendCourseAndKnowledge();
+    linkageMenu.setCourse();
+    utils.initDateTimePicker('datepickers');
+
 
     // update page init
     var query = utils.getQueryObject();
@@ -166,8 +145,14 @@ define(function (require, exports, module) {
     
     $(".addTemplate").click(function(){
         program.addQuesTpl();
-        program.appendCourseAndKnowledge();
+        utils.initDateTimePicker('datepickers');
+        linkageMenu.setCourse();
     });
+
+    $('.courseName').on('change', function(){
+        linkageMenu.onchange();
+    });
+
     $('.save').on('click', function() {
         var types = this.id;
         if(!program.examId) {
@@ -176,10 +161,18 @@ define(function (require, exports, module) {
         else {
             program.updateForm();
         }
+    });
+    $('#quetemple').on('change','.knowName,.level,.protime', function(){
+        // console.log($(this).parents().eq(1).find('.badge').text(4));
+        var data = {};
+        var _this = $(this);
+        utils.ajax(url.PROBLEM_LIST, data, function(result) {
+            _this.parents().eq(1).find('.badge').text(result.total)
+        })
     })
     //delete current tr ele
     $("tbody").on("click", ".glyphicon-remove", function(event){
         // tips: eq(0) sames to ele.parent...
-        $(this).parents().eq(1).remove()
+        $(this).parents().eq(1).remove();
     });
 });
