@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 @@include('./common/header.inc')
+<!-- <link rel="stylesheet" type="text/css" href="../css/lib/datepicker.css"> -->
 <body>
  <div id="wrapper">
     <!-- navigation -->
@@ -11,14 +12,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row opration page-header">
-                       <div class="tips"></div>
-                       <div class="col-md-3">
-                            <button type="button" class="btn btn-success unlocks">
-                                <span class="fa fa-key"></span> 批量解锁
-                            </button>
-                       </div>
+                        <div class="tips"></div>
+                        <h2 class="text-center"><strong>在线用户</strong></h2>
                     </div>
-                    <table class="table table-bordered table-hover table-condensed table-striped">
+                <table class="table table-bordered table-hover table-condensed table-striped">
                     <thead>
                         <tr>
                             <th><input type="checkbox" class="check_list" />全选</th>
@@ -26,10 +23,7 @@
                             <th>用户名</th>
                             <th>姓名</th>
                             <th>班级</th>
-                            <th>上次登陆时间</th>
-                            <th>上次登陆IP</th>
-                            <th>本次请求登陆IP</th>
-                            <th>操作</th>
+                            <th>IP</th>
                         </tr>
                     </thead>
                     <tbody id="listInfo">
@@ -37,17 +31,14 @@
                 </table>
                 <script id="getcontent" type="text/html">
                     {{each data as value i}} 
-                           <tr>
-                            <td><input type="checkbox" value="{{value.userId}}" name="title"/></td>
-                            <td>{{++i}}</td>
-                            <td>{{value.username}}</td>
-                            <td>{{value.realname}}</td>
-                            <td>{{value.classname}}</td>
-                            <td>{{value.lastTime}}</td>
-                            <td>{{value.lastLoginIp}}</td>
-                            <td>{{value.nowLoginIp}}</td>
-                            <td><button class='btn btn-primary btn-xs lock-btn'><span class="fa fa-key"></span> 解锁</button></td>
-                           </tr>
+                       <tr>
+                        <td><input type="checkbox" value="{{value.usrpfId}}" name="title"/></td>
+                        <td>{{++i}}</td>
+                        <td ><a href="javascript:;"class="title addUser" id="{{value.usrpfId}}">{{value.studentNumber}}</a></td>
+                        <td>{{value.realName}}</td>
+                        <td>{{value.term}}</td>
+                        <td>{{value.umid}}</td>
+                       </tr>
                     {{/each}}
                 </script>
                 <div class="row col-md-offset-8">
@@ -61,8 +52,9 @@
  </div>
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
+<script type="text/javascript" src="../js/lib/jquery.validate.js"></script>
 <script type="text/javascript">
-    seajs.use('../js/unlock.js')
+    seajs.use('../js/users.js')
 </script>
 </body>
 </html>

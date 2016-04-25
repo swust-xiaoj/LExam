@@ -17,7 +17,7 @@
             <a href="index.html"><i class="fa fa-home fa-fw"></i> 主页</a>
         </li>
         <li>
-            <a href="users.html"><i class="fa fa-users fa-fw"></i> 在线用户</a>
+            <a href="onlineuser.html"><i class="fa fa-users fa-fw"></i> 在线用户</a>
         </li>
 
         <li>
@@ -53,7 +53,7 @@
                             <a href="exam.html">考试列表</a>
                         </li>
                         <li>
-                            <a href="##">相似度检测结果</a>
+                            <a href="similarity.html">相似度检测结果</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

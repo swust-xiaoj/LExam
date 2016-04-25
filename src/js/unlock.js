@@ -14,19 +14,44 @@ define(function(require){
                 $('#listInfo').html(render_list);
             })
         },
-        unlock: function() {
-            utils.ajax(url.UNLOCKIT, {id: progrma.ids}, function(){
-                if(reuslt.status) {
+        unlock: function(ids) {
+            utils.ajax(url.UNLOCKIT, {id: ids}, function(result){
+                if(result.status) {
                     utils.setTips('success', '解锁成功！');
                 }
                 else {
-                    utils.setTips('danger', '介绍失败！');
+                    utils.setTips('danger', '解锁失败！');
                 }
             })
         }
     };
     program.initPage(1);
     utils.toggleCheck('check_list', 'listInfo');
+
+    // dom events
+    $(".unlocks").on('click', function(){
+        var idArr = [];
+        $(":checkbox[name='title']:checked").each(function(i) {
+            idArr[i] = $(this).val();
+        });
+        var ids= idArr.join(',');
+        if(ids) {
+            program.unlock(ids);
+        }
+        else {
+            utils.setTips('info', '请先勾选删除项！');
+        }   
+    });
+
+    $("tbody").on("click", ".lock-btn", function(event) {
+        var id = $(this).parents().eq(1).find('input:checkbox').val();
+        if(id) {
+            program.unlock(id);
+        }
+        else {
+            utils.setTips('info', '请先勾选删除项！');
+        }
+    });
 
     $.jqPaginator('#pagination', {
         totalCounts : program.count,

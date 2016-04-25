@@ -1,89 +1,41 @@
 {
-    "total": 14,
+    "total": 4,
     "data": [
         {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
+            "lastTime": "2016-01-08 21:34:42",
+            "classname": "卓软1301",
+            "nowLoginIp": "127.0.0.1",
             "userId": 2,
-            "usrlId": 205
+            "username": "wwhhff11",
+            "realname": "万鸿飞",
+            "lastLoginIp": "127.0.0.1"
         },
         {
-            "isLocked": 1,
-            "loginIp": "10.10.2.3",
+            "lastTime": "2016-01-04 06:01:48",
+            "classname": "教师",
+            "nowLoginIp": "",
             "userId": 1,
-            "usrlId": 203
+            "username": "mryang",
+            "realname": "杨春明",
+            "lastLoginIp": "测试"
         },
-        {   
-            "isLocked": 1,
-            "loginIp": "225.21.172.2",
+        {
+            "lastTime": "2016-01-04 06:01:48",
+            "classname": "教师",
+            "nowLoginIp": "",
             "userId": 1,
-            "usrlId": 202
+            "username": "mryang",
+            "realname": "杨春明",
+            "lastLoginIp": "测试"
         },
         {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
-            "userId": 2,
-            "usrlId": 205
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
+            "lastTime": "2016-01-04 06:01:48",
+            "classname": "教师",
+            "nowLoginIp": "測試",
             "userId": 1,
-            "usrlId": 199
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
-            "userId": 2,
-            "usrlId": 205
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
-            "userId": 2,
-            "usrlId": 205
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
-            "userId": 1,
-            "usrlId": 199
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
-            "userId": 1,
-            "usrlId": 199
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
-            "userId": 2,
-            "usrlId": 205
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
-            "userId": 1,
-            "usrlId": 199
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
-            "userId": 1,
-            "usrlId": 199
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "127.0.0.1",
-            "userId": 2,
-            "usrlId": 205
-        },
-        {
-            "isLocked": 1,
-            "loginIp": "測試",
-            "userId": 1,
-            "usrlId": 199
+            "username": "mryang",
+            "realname": "杨春明",
+            "lastLoginIp": "测试"
         }
     ]
 }
