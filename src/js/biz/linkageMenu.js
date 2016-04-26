@@ -22,7 +22,7 @@ define(function(require){
         },
         onchange: function() {
             var parentId = $(".courseName option:selected").val();
-            knowledgeHtml = ['<option>知识点</option>'];
+            knowledgeHtml = ['<option value="">知识点</option>'];
             for(var i = 0; i < knowledge.length ; i++){
                 if(knowledge[i].parentId == parentId){
                     knowledgeHtml.push('<option value=' + knowledge[i].knowId + '>' + knowledge[i].knowName + '</option>');

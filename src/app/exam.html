@@ -12,22 +12,24 @@
  				<div class="col-lg-12">
                     <div class="row opration page-header">
                        <div class="tips"></div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <button type="button" class="btn btn-success addexam">
                                 <span class="glyphicon glyphicon-plus"></span>添加考试
                             </button>
-                            <button type="button" class="btn  btn-info delete">
+                            <button type="button" class="btn btn-info delete">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除考试
                             </button>
                         </div>
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <input type="text" class="form-control searTitle"
-                                    placeholder="标题"> <span
-                                    class="input-group-btn">
-                                    <button class="btn btn-primary search" type="button">查询</button>
-                                </span>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-6">
+                                <input class="form-control datepickers startTime"  type="text"  placeholder="start Time" readonly>
                             </div>
+                            <div class="input-group col-md-6">
+                            <input class="form-control datepickers endTime"  type="text"  placeholder="end Time" readonly>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary search" type="button">查询</button>
+                            </span>
+                            </div> 
                         </div>
                     </div>
                 <table class="table table-bordered table-hover table-condensed table-striped">
@@ -36,8 +38,8 @@
                             <th><input type="checkbox" class="check_list" />全选</th>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>EndTime</th>
                             <th>StartTime</th>
+                            <th>EndTime</th>
                         </tr>
                     </thead>
                     <tbody id="listInfo">
@@ -49,8 +51,8 @@
                             <td><input type="checkbox" value="{{value.examId}}" name="title"/></td>
                             <td>{{++i}}</td>
                             <td><a href="editExam.html?id={{value.examId}}" class="title">{{value.title}}</a></td>
-                            <td>{{value.endTime}}</td>
                             <td>{{value.startTime}}</td>
+                            <td>{{value.endTime}}</td>
                            </tr>
                     {{/each}}
                 </script>

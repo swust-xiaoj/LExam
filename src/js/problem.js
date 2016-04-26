@@ -11,9 +11,17 @@ define(function (require, exports, module) {
     program = {
         title:'',
         removeList:[],
-        getProblemInfo: function(page) {
+        page: 1,
+        getProblemInfo: function() {
             var _this = this;
-            utils.ajax(url.PROBLEM_LIST, {page:page,rows:20}, function(result) {
+            var query = {
+                "problemInfo.title": _this.title,
+                "problemInfo.level" : _this.level,
+                knowId : _this.know,
+                page: _this.page,
+                rows: 20
+            };
+            utils.ajax(url.PROBLEM_LIST, query, function(result) {
                 _this.count = result.total;
                 for(var i = 0, len = result.data.length; i < len; i++) {
                     result.data[i].courseName = result.course[i].knowName || '';
@@ -52,7 +60,7 @@ define(function (require, exports, module) {
             })
         }
     };
-    program.getProblemInfo(1);
+    program.getProblemInfo();
     utils.toggleCheck('check_list', 'listInfo');
     linkageMenu.setCourse();
     
@@ -63,6 +71,23 @@ define(function (require, exports, module) {
     $('.courseName').on('change', function(){
         linkageMenu.onchange();
     });
+    $('.search').on('click', function() {
+        program.page = 1;
+        program.title = $('.searTitle').val().trim();
+        program.level = $(".level option:selected").val();
+        program.know = $(".knowName option:selected").val();
+        program.getProblemInfo();
+    });
+    $('.opration').on('change', '.knowName,.level', function() {
+        var value = $(this).val();
+        if($(this).attr('class').indexOf('knowName')!==-1){
+            program.know = value;
+        }
+        else {
+            program.level = value;
+        }
+        program.getProblemInfo();
+    })
     $('.delete').on('click', function (e) {
         program.deleteIt();
     });
@@ -77,7 +102,8 @@ define(function (require, exports, module) {
         page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
         onPageChange: function (num, type) {
             if(type == 'init') {return;}
-            program.getProblemInfo(num);
+            program.page = num;
+            program.getProblemInfo();
         }
      });
 });

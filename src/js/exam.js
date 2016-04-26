@@ -2,7 +2,7 @@ define(function (require, exports, module) {
     require('jquery');
     require('bootstrap');
     require('paginator');
-    // require('datepicker');
+    require('datetimepicker');
     // var modal = require('ui/modalDialog.js');
     var template = require('artTemplate');
     var utils = require('biz/utils.js');
@@ -13,9 +13,16 @@ define(function (require, exports, module) {
     var program ={
         title:'',
         removeList: [],
-        getExamInfo:function(page){
+        page: 1,
+        getExamInfo:function() {
             var _this = this;
-            utils.ajax(url.EXAM_LIST, {page:page,rows:20}, function(result) {
+            var data = {
+                startTime: this.st,
+                endTime: this.et,
+                page: this.page,
+                rows: 20
+            }
+            utils.ajax(url.EXAM_LIST, data, function(result) {
                 _this.count = result.total;
                 var lisr_render = template('getcontent', result);
                 $('#listInfo').empty();
@@ -50,15 +57,30 @@ define(function (require, exports, module) {
             })
         }
     };
-    program.getExamInfo(1);
+    program.getExamInfo();
     utils.toggleCheck('check_list', 'listInfo');
-    
+    utils.initDateTimePicker('datepickers');
     $(".addexam").click(function(){
         window.location.href = 'editExam.html'
     });
     $('.delete').on('click', function (e) {
         program.deleteIt();
     });
+    $('.search').on('click', function(){
+        var st = $('.startTime').val();
+        var et = $('.endTime').val();
+        if(!st || !et){
+            utils.setTips('info', '请选择查询时间段！');
+            return false;
+        }
+        if(st > et){
+            utils.setTips('warning', '开始日期不能大于结束日期！');
+            return false;
+        }
+        program.st = st;
+        program.et = et;
+        program.getExamInfo();
+    })
     $.jqPaginator('#pagination', {
         totalCounts : program.count,
         visiblePages: 5,
@@ -69,7 +91,8 @@ define(function (require, exports, module) {
         page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
         onPageChange: function (num, type) {
             if(type == 'init') {return;}
-            program.getExamInfo(num);
+            program.page = num;
+            program.getExamInfo();
         }
      });
 });
