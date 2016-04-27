@@ -14,6 +14,7 @@ define(function (require, exports, module) {
         title:'',
         removeList: [],
         page: 1,
+        dataSet:[],
         getExamInfo:function() {
             var _this = this;
             var data = {
@@ -24,9 +25,9 @@ define(function (require, exports, module) {
             }
             utils.ajax(url.EXAM_LIST, data, function(result) {
                 _this.count = result.total;
+                _this.dataSet = result.data;
                 var lisr_render = template('getcontent', result);
-                $('#listInfo').empty();
-                $('#listInfo').append(lisr_render);
+                $('#listInfo').html(lisr_render);
             });
         },
         deleteIt:function(){
@@ -80,6 +81,27 @@ define(function (require, exports, module) {
         program.st = st;
         program.et = et;
         program.getExamInfo();
+    });
+    $('table').on('click', 'th', function(){;
+        var sortType = $(this).text();
+        program.dataSet.sort(function(a,b){
+            return a[sortType].localeCompare(b[sortType]);
+        });
+        var result = {};
+        if(program.flag){
+            program.dataSet.reverse();
+            program.flag = 0;
+            $.extend(result, {data:program.dataSet})
+            var lisr_render = template('getcontent', result);
+            $('#listInfo').html(lisr_render);
+        }
+        else{
+            $.extend(result, {data:program.dataSet})
+            var lisr_render = template('getcontent', result);
+            $('#listInfo').html(lisr_render);
+            program.flag = 1;            
+        }
+        // r[sortType] = 1;
     })
     $.jqPaginator('#pagination', {
         totalCounts : program.count,
