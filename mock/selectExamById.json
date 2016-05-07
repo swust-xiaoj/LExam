@@ -1,13 +1,61 @@
 {
+    "paramTotal": 3,
     "total": 1,
     "data": [
         {
             "allowIp": null,
-            "description": "这是一个用于测试的考试",
-            "endTime": "2015-12-29 09:30:00",
-            "examId": 189,
-            "startTime": "2015-12-29 08:00:00",
-            "title": "程序设计C-2015年12月29日16：00-17：30"
+            "description": "",
+            "endTime": "2015-12-29 03:45:00",
+            "examId": 187,
+            "startTime": "2015-12-29 02:00:00",
+            "title": "程序设计C-2015年12月29日10：00-11：30"
         }
-    ]
+    ],
+    "KnowledgeData": [
+        {
+            "isCourse": 0,
+            "knowId": 81,
+            "knowName": "2015C-DB2",
+            "parentId": 85
+        },
+        {
+            "isCourse": 0,
+            "knowId": 81,
+            "knowName": "2015C-DB2",
+            "parentId": 85
+        },
+        {
+            "isCourse": 0,
+            "knowId": 81,
+            "knowName": "2015C-DB2",
+            "parentId": 85
+        }
+    ],
+    "paramData": [
+        {
+            "examId": 187,
+            "expmId": 699,
+            "knowId": 81,
+            "level": 0,
+            "score": 7,
+            "sinceTime": null
+        },
+        {
+            "examId": 187,
+            "expmId": 700,
+            "knowId": 81,
+            "level": 1,
+            "score": 7,
+            "sinceTime": null
+        },
+        {
+            "examId": 187,
+            "expmId": 701,
+            "knowId": 81,
+            "level": 2,
+            "score": 6,
+            "sinceTime": null
+        }
+    ],
+    "KnowledgeTotal": 3
 }

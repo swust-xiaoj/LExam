@@ -6,25 +6,27 @@ define(function (require, exports, module) {
     var template = require('artTemplate');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
+    var flag = 1;
 
     var program ={
+        order: 1,
         title: '',
         startTime: '',
         endTime: '',
         description: '',
         examId: '',
-        addQuesTpl: function() {
-            var tplArr = ['<tr><td><select class="form-control courseName"></select></td>',
-                              '<td><select class="form-control knowName"></select></td>',
-                              '<td><select class="form-control level">',
+        addTemplate: function() {
+            var tplArr = ['<tr><td><select class="form-control courseName courseName" id="courseName-'+flag+'"></select></td>',
+                              '<td><select class="form-control knowName" id="knowName-'+flag+'"></select></td>',
+                              '<td><select class="form-control level" id="level-'+flag+'">',
                                   '<option value="0">Easy</option>',
                                   '<option value="1">Normal</option>',
                                   '<option value="2">Hard</option></select></td>',
-                              '<td><input class="form-control datepickers protime"  type="text"  readonly /></td>',
-                              '<td><input class="form-control"  type="text"  value="10" /></td>',
+                              '<td><input class="form-control datepickers protime" id="protime-'+flag+'"  type="text"  readonly /></td>',
+                              '<td><input class="form-control" id="score-'+flag+'"  type="text"  value="10" /></td>',
                               '<td><span class="badge">0</span></td>',
                               '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td></tr>'
-            ].join('');
+                            ].join('');
             $('#quetemple').append(tplArr);
         },
         getFormData: function() {
@@ -52,6 +54,32 @@ define(function (require, exports, module) {
                 _this.description = result.data[0].description;
                 _this.startTime = result.data[0].startTime;
                 _this.endTime = result.data[0].endTime;
+                _this.knowledgeTotal = result.KnowledgeTotal;
+                _this.paramData = result.paramData;
+                var length = result.paramTotal;
+                for(var i = 0; i < length;i++){
+                    var id = "courseName-"+i;
+                    if(i==flag){
+                        program.addTemplate();
+                        $("#"+id).html("<option>课程</option>");
+                        for(var k = 0; k < linkageMenu.courseName.length;k++){
+                            $("#"+id).append("<option value="+linkageMenu.courseName[k].knowId+">"+linkageMenu.courseName[k].knowName+"</option>");
+                        }
+                        flag++;
+                    }
+                    var parentId = result.KnowledgeData[i].parentId;
+                    
+                    $("#"+id+" option[value='"+parentId+"']").attr("selected",true);
+                    for(var j = 0; j < linkageMenu.course.length ; j++){//知识点
+                        if(linkageMenu.course[j].parentId == parentId){
+                            $(".iknowName").append("<option value="+linkageMenu.course[j].knowId+">"+linkageMenu.course[j].knowName+"</option>");
+                        }
+                    }
+                    $(".courseName-"+i+"  option[value='"+result.KnowledgeData[i].knowId+"']").attr("selected",true);
+                    $(".level-"+i+" option[value='"+result.paramData[i].level+"']").attr("selected",true);
+                    $(".score-"+i).val(result.paramData[i].score);
+                    program.expmIds[i] = result.paramData[i].expmId;
+                }
             })
         },
         setForm: function() {
@@ -139,18 +167,20 @@ define(function (require, exports, module) {
     if(query.id) {
         $('.pageName').html('修改考试');
         program.examId = query.id;
-        program.getExamInfoById(this.examId);
+        program.getExamInfoById(program.examId);
         program.setForm();
     }
     
     $(".addTemplate").click(function(){
-        program.addQuesTpl();
-        utils.initDateTimePicker('datepickers');
-        linkageMenu.setCourse();
+       program.addTemplate();
+        var length = linkageMenu.courseName.length;
+        for(var i = 0;i<length;i++)
+            $("#courseName-"+flag).append("<option value="+linkageMenu.courseName[i].knowId+">"+linkageMenu.courseName[i].knowName+"</option>");
+        flag++;
     });
 
     $('.courseName').on('change', function(){
-        linkageMenu.onchange();
+        linkageMenu.onchange('#courseName-0');
     });
 
     $('.save').on('click', function() {
@@ -174,5 +204,25 @@ define(function (require, exports, module) {
     $("tbody").on("click", ".glyphicon-remove", function(event){
         // tips: eq(0) sames to ele.parent...
         $(this).parents().eq(1).remove();
+        program.order -= 1;
+    });
+
+
+     $("#queTempla").on('change','.courseName',function(){
+        var id = this.id;
+        if(id!=""){
+        var classname = "."+id;
+        $(classname).html("");
+        var parentId = $("#"+id+" option:selected").val();
+        if(parentId =="课程"){
+            $(classname).html("<option>知识点</option>");
+            return ;
+        }
+        for(var i = 0; i < linkageMenu.course.length ; i++){
+            if(linkageMenu.course[i].parentId == parentId){
+                $(classname).append("<option value="+linkageMenu.course[i].knowId+">"+linkageMenu.course[i].knowName+"</option>");
+            }
+        }
+        }
     });
 });

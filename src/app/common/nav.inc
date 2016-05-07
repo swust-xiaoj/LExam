@@ -112,9 +112,6 @@
                         <li>
                             <a href="syssetting.html">系统参数设置</a>
                         </li>
-                        <li>
-                            <a href="##">XXXX</a>
-                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
