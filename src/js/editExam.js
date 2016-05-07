@@ -7,6 +7,7 @@ define(function (require, exports, module) {
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
     var flag = 1;
+    window.flag = flag;
 
     var program ={
         order: 1,
@@ -16,18 +17,20 @@ define(function (require, exports, module) {
         description: '',
         examId: '',
         addTemplate: function() {
-            var tplArr = ['<tr><td><select class="form-control courseName courseName" id="courseName-'+flag+'"></select></td>',
-                              '<td><select class="form-control knowName" id="knowName-'+flag+'"></select></td>',
-                              '<td><select class="form-control level" id="level-'+flag+'">',
+            var tplArr = ['<tr><td><select class="form-control courseName" id="courseName-'+flag+'"><option>课程</option></select></td>',
+                              '<td><select class="form-control knowName courseName-'+flag+'"><option>知识点</option></select></td>',
+                              '<td><select class="form-control level level-'+flag+'">',
+                                  '<option>难度</option>',
                                   '<option value="0">Easy</option>',
                                   '<option value="1">Normal</option>',
                                   '<option value="2">Hard</option></select></td>',
-                              '<td><input class="form-control datepickers protime" id="protime-'+flag+'"  type="text"  readonly /></td>',
-                              '<td><input class="form-control" id="score-'+flag+'"  type="text"  value="10" /></td>',
+                              '<td><input class="form-control datepickers protime protime-'+flag+'" id="protime-'+flag+'"  type="text"  readonly /></td>',
+                              '<td><input class="form-control score-'+flag+'" type="text"  value="10" /></td>',
                               '<td><span class="badge">0</span></td>',
                               '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td></tr>'
                             ].join('');
             $('#quetemple').append(tplArr);
+            // console.log(tplArr)
         },
         getFormData: function() {
             this.title = $('.examTitle').val();
@@ -175,12 +178,24 @@ define(function (require, exports, module) {
        program.addTemplate();
         var length = linkageMenu.courseName.length;
         for(var i = 0;i<length;i++)
-            $("#courseName-"+flag).append("<option value="+linkageMenu.courseName[i].knowId+">"+linkageMenu.courseName[i].knowName+"</option>");
+            $("#courseName-" + flag).append("<option value="+linkageMenu.courseName[i].knowId+">"+linkageMenu.courseName[i].knowName+"</option>");
         flag++;
     });
 
-    $('.courseName').on('change', function(){
-        linkageMenu.onchange('#courseName-0');
+    $('#quetemple').on('change','.courseName', function(){
+        console.log(this.id)
+        var classname = '.' + this.id;
+        $(classname).html('');
+        var parentId = $(this).find('option:selected').val();
+        if(parentId === '课程'){
+            $(classname).html("<option>知识点</option>");
+            return ;
+        }
+        for(var i = 0; i < linkageMenu.course.length ; i++){
+            if(linkageMenu.course[i].parentId == parentId){
+                $(classname).append("<option value="+linkageMenu.course[i].knowId+">"+linkageMenu.course[i].knowName+"</option>");
+            }
+        }
     });
 
     $('.save').on('click', function() {
@@ -204,7 +219,7 @@ define(function (require, exports, module) {
     $("tbody").on("click", ".glyphicon-remove", function(event){
         // tips: eq(0) sames to ele.parent...
         $(this).parents().eq(1).remove();
-        program.order -= 1;
+        flag -= 1;
     });
 
 
