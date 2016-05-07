@@ -1,13 +1,41 @@
 {
-    "total": 2,
+    "total": 6,
     "list": [
         {
-            "majorName": "软件工程",
-            "umid": 1
+            "acadName": "english2",
+            "majorName": "english",
+            "schoolName": "english1",
+            "umid": 7
         },
         {
-            "majorName": "计算机科学与技术",
-            "umid": 2
+            "acadName": "音乐",
+            "majorName": "音乐",
+            "schoolName": "音乐",
+            "umid": 8
+        },
+        {
+            "acadName": "中方",
+            "majorName": "中文",
+            "schoolName": "中文1",
+            "umid": 9
+        },
+        {
+            "acadName": "中方",
+            "majorName": "中文",
+            "schoolName": "中文1",
+            "umid": 10
+        },
+        {
+            "acadName": "中方",
+            "majorName": "中文",
+            "schoolName": "中文1",
+            "umid": 12
+        },
+        {
+            "acadName": null,
+            "majorName": "222",
+            "schoolName": "111",
+            "umid": 13
         }
     ]
 }

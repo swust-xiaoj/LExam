@@ -60,6 +60,10 @@ define(function (require, exports, module) {
             })
         }
     };
+    var parm = utils.getQueryObject();
+    if(parm["id"]){
+            program.know = parm["id"];
+    }
     program.getProblemInfo();
     utils.toggleCheck('check_list', 'listInfo');
     linkageMenu.setCourse();

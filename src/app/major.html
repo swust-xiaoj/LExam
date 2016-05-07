@@ -14,7 +14,7 @@
                     <div class="row opration page-header">
                         <div class="tips"></div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-success add">
+                            <button type="button" class="btn btn-success modify">
                                 <span class="glyphicon glyphicon-plus"></span>添加专业
                             </button>
                             <button type="button" class="btn btn-warning delete">
@@ -27,7 +27,9 @@
                         <tr>
                             <th><input type="checkbox" class="check_list" />全选</th>
                             <th>序号</th>
+                            <th>学院名称</th>
                             <th>专业名称</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody id="listInfo">
@@ -38,7 +40,9 @@
                         <tr>
                             <th><input type="checkbox" value="{{value.umid}}" name="title"/></th>
                             <td>{{++i}}</td>
+                            <td>{{value.acadName}}</td>
                             <td>{{value.majorName}}</td>
+                            <td><a class="modify" id='{{value.umid}}' href="javascript:void(0)"><i class="fa fa-edit fa-fw"></i></a></td>
                         </tr>
                  {{/each}}
                 </script>
@@ -53,6 +57,7 @@
  </div>
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
+<script type="text/javascript" src="../js/lib/jquery.validate.js"></script>
 <script type="text/javascript">
     seajs.use('../js/major.js')
 </script>

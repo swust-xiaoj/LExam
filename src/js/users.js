@@ -197,7 +197,7 @@ define(function (require, exports, module) {
             program.selectById();
         }
     });
-    $(".closebutton").click(function(){
+    $(".cancelBtn").click(function(){
         program.clearValue();
     });
     $(".saveData").click(function(){
