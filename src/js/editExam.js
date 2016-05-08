@@ -10,12 +10,12 @@ define(function (require, exports, module) {
     window.flag = flag;
 
     var program ={
-        order: 1,
         title: '',
         startTime: '',
         endTime: '',
         description: '',
         examId: '',
+        expmIds: [],
         addTemplate: function() {
             var tplArr = ['<tr><td><select class="form-control courseName" id="courseName-'+flag+'"><option>课程</option></select></td>',
                               '<td><select class="form-control knowName courseName-'+flag+'"><option>知识点</option></select></td>',
@@ -24,19 +24,54 @@ define(function (require, exports, module) {
                                   '<option value="0">Easy</option>',
                                   '<option value="1">Normal</option>',
                                   '<option value="2">Hard</option></select></td>',
-                              '<td><input class="form-control datepickers protime protime-'+flag+'" id="protime-'+flag+'"  type="text"  readonly /></td>',
-                              '<td><input class="form-control score-'+flag+'" type="text"  value="10" /></td>',
-                              '<td><span class="badge">0</span></td>',
+                              '<td><input class="form-control datepickers sinceTime sinceTime-'+flag+'" id="sinceTime-'+flag+'"  type="text"  readonly /></td>',
+                              '<td><input class="form-control score score-'+flag+'" type="text"  value="10" /></td>',
+                              '<td><span class="badge">#</span></td>',
                               '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td></tr>'
                             ].join('');
             $('#quetemple').append(tplArr);
-            // console.log(tplArr)
         },
         getFormData: function() {
             this.title = $('.examTitle').val();
             this.description = $('.description').val();
             this.startTime = $('.startTime').val();
             this.endTime = $('.endTime').val();
+            var courseArr = [], knowArr = [], levelArr = [], scoreArr = [], sinceTimeArr = [];
+            $('.courseName').each(function(i) {
+                if($(this).val()==='知识点'){
+                    courseArr[i] = '';
+                }
+                else {
+                    courseArr = $(this).val();
+                }
+            });
+            $('.knowName').each(function(i) {
+                if($(this).val()==='知识点'){
+                    knowArr[i] = '';
+                }
+                else {
+                    knowArr[i] = $(this).val();
+                }
+            });
+            $('.level').each(function(i) {
+                if($(this).val()==='难度'){
+                    levelArr[i] = '';
+                }
+                else {
+                    levelArr[i] = $(this).val();
+                }
+            });
+            $('.score').each(function(i) {
+                scoreArr[i] = $(this).val();
+            });
+            $('.sinceTime').each(function(i){
+                sinceTimeArr[i] = $(this).val();
+            })
+            program.knowArr = knowArr.join(',');
+            program.levelArr = levelArr.join(',');
+            program.scoreArr = scoreArr.join(',');
+            program.sinceTime = sinceTimeArr.join(',');
+            program.expmArr = program.expmIds.join(',');
         },
         validForm: function() {
             this.getFormData();
@@ -75,12 +110,15 @@ define(function (require, exports, module) {
                     $("#"+id+" option[value='"+parentId+"']").attr("selected",true);
                     for(var j = 0; j < linkageMenu.course.length ; j++){//知识点
                         if(linkageMenu.course[j].parentId == parentId){
-                            $(".iknowName").append("<option value="+linkageMenu.course[j].knowId+">"+linkageMenu.course[j].knowName+"</option>");
+                            $(".knowName").append("<option value="+linkageMenu.course[j].knowId+">"+linkageMenu.course[j].knowName+"</option>");
                         }
                     }
+                    utils.initDateTimePicker('datepickers');
                     $(".courseName-"+i+"  option[value='"+result.KnowledgeData[i].knowId+"']").attr("selected",true);
                     $(".level-"+i+" option[value='"+result.paramData[i].level+"']").attr("selected",true);
                     $(".score-"+i).val(result.paramData[i].score);
+                    $('.sinceTime-'+i).val(result.paramData[i].sinceTime)
+                    // console.log(result.paramData[i].expmId)
                     program.expmIds[i] = result.paramData[i].expmId;
                 }
             })
@@ -100,9 +138,13 @@ define(function (require, exports, module) {
         submitForm: function(types) {
             var data = {
                 title : this.title,
+                description : this.description,
                 startTime : this.startTime,
                 endTime :this.endTime,
-                description : this.description
+                knowIds: program.knowArr,
+                levels: program.levelArr,
+                scores: program.scoreArr,
+                sinceTime: program.sinceTime
             };
             var _this = this;
             if(this.validForm()){
@@ -113,7 +155,7 @@ define(function (require, exports, module) {
                                 utils.setTips('success', '添加成功！');
                                 window.location.href = 'exam.html';
                                 break;
-                            case 'saveEdtor':
+                            case 'saveEdit':
                                 utils.setTips('success', '添加成功！');
                                 break;
                             case 'saveAdd':
@@ -134,7 +176,12 @@ define(function (require, exports, module) {
                 title: this.title,
                 startTime: this.startTime,
                 endTime:this.endTime,
-                description: this.description
+                description: this.description,
+                knowIds: program.knowArr,
+                levels: program.levelArr,
+                scores: program.scoreArr,
+                expmIds : program.expmArr,
+                sinceTime: program.sinceTime
             };
             var _this = this;
             if(this.validForm()){
@@ -175,7 +222,8 @@ define(function (require, exports, module) {
     }
     
     $(".addTemplate").click(function(){
-       program.addTemplate();
+        program.addTemplate();
+        utils.initDateTimePicker('datepickers');
         var length = linkageMenu.courseName.length;
         for(var i = 0;i<length;i++)
             $("#courseName-" + flag).append("<option value="+linkageMenu.courseName[i].knowId+">"+linkageMenu.courseName[i].knowName+"</option>");
@@ -200,6 +248,7 @@ define(function (require, exports, module) {
 
     $('.save').on('click', function() {
         var types = this.id;
+        program.getFormData();
         if(!program.examId) {
             program.submitForm(types);
         }
@@ -207,7 +256,7 @@ define(function (require, exports, module) {
             program.updateForm();
         }
     });
-    $('#quetemple').on('change','.knowName,.level,.protime', function(){
+    $('#quetemple').on('change','.knowName,.level,.sinceTime', function(){
         // console.log($(this).parents().eq(1).find('.badge').text(4));
         var data = {};
         var _this = $(this);

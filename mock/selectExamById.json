@@ -38,7 +38,7 @@
             "knowId": 81,
             "level": 0,
             "score": 7,
-            "sinceTime": null
+            "sinceTime": "2015-12-29 02:00:00"
         },
         {
             "examId": 187,
@@ -46,7 +46,7 @@
             "knowId": 81,
             "level": 1,
             "score": 7,
-            "sinceTime": null
+            "sinceTime": "2015-12-29 02:00:00"
         },
         {
             "examId": 187,
@@ -54,7 +54,7 @@
             "knowId": 81,
             "level": 2,
             "score": 6,
-            "sinceTime": null
+            "sinceTime": "2015-12-29 02:00:00"
         }
     ],
     "KnowledgeTotal": 3
