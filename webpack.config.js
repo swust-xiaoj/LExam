@@ -45,7 +45,9 @@ module.exports = {
             ueditor: srcDir + '/js/lib/ueditor/ueditor.all.min.js',
             metisMenu: srcDir + '/js/lib/metisMenu.min.js',
             datetimepicker: srcDir + '/js/lib/bootstrap-datetimepicker.min.js',
-            startmin: srcDir + '/js/lib/startmin.js'
+            startmin: srcDir + '/js/lib/startmin.js',
+            // wangEditor: srcDir + '/js/lib/wangEditor.min.js',
+            fileupload: srcDir + '/js/lib/ajaxfileupload.js'
         }
     },
     plugins: [

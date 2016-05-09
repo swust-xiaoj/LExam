@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 @@include('./common/header.inc')
+<link rel="stylesheet" href="../css/lib/wangEditor.min.css">
 <body>
  <div id="wrapper">
     <!-- navigation -->
@@ -12,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="row opration page-header">
                        <div class="tips"></div>
-                       <h2>this is a blank page !!!</h2>
+                       <div id="footer-info"></div>
                     </div>
                 </div>
             </div>
@@ -22,5 +23,9 @@
  </div>
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
+<!-- <script src="../js/lib/wangEditor.min.js"></script> -->
+<script type="text/javascript">
+    seajs.use('../js/syssetting.js')
+</script>
 </body>
 </html>

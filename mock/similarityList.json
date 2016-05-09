@@ -1,0 +1,205 @@
+{
+    "list":[
+         {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.722315118514615,
+            "submId1": 29411,
+            "submId2": 29415,
+            "submsId": 1,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "PostOffice",
+            "problemTitle2": "PostOffice",
+            "similarity": 0.816496580927726,
+            "submId1": 29413,
+            "submId2": 29418,
+            "submsId": 2,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.722315118514615,
+            "submId1": 29415,
+            "submId2": 29411,
+            "submsId": 3,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 1,
+            "submId1": 29415,
+            "submId2": 29416,
+            "submsId": 4,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.622171016838255,
+            "submId1": 29415,
+            "submId2": 29420,
+            "submsId": 5,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "计算Sn",
+            "problemTitle2": "计算Sn",
+            "similarity": 0.723746864455746,
+            "submId1": 32378,
+            "submId2": 32544,
+            "submsId": 40,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": null,
+            "problemTitle2": null,
+            "similarity": 1,
+            "submId1": 29414,
+            "submId2": 29417,
+            "submsId": 7,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "计算Sn",
+            "problemTitle2": "计算Sn",
+            "similarity": 0.807142048535933,
+            "submId1": 32378,
+            "submId2": 32706,
+            "submsId": 29,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.722315118514615,
+            "submId1": 29416,
+            "submId2": 29411,
+            "submsId": 9,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 1,
+            "submId1": 29416,
+            "submId2": 29415,
+            "submsId": 10,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.622171016838255,
+            "submId1": 29416,
+            "submId2": 29420,
+            "submsId": 11,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": null,
+            "problemTitle2": null,
+            "similarity": 1,
+            "submId1": 29417,
+            "submId2": 29412,
+            "submsId": 12,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": null,
+            "problemTitle2": null,
+            "similarity": 1,
+            "submId1": 29417,
+            "submId2": 29414,
+            "submsId": 13,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": null,
+            "problemTitle2": null,
+            "similarity": 0.622171016838255,
+            "submId1": 29417,
+            "submId2": 29421,
+            "submsId": 14,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "PostOffice",
+            "problemTitle2": "PostOffice",
+            "similarity": 0.816496580927726,
+            "submId1": 29418,
+            "submId2": 29413,
+            "submsId": 15,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.823906474900452,
+            "submId1": 29420,
+            "submId2": 29411,
+            "submsId": 16,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.622171016838255,
+            "submId1": 29420,
+            "submId2": 29415,
+            "submsId": 17,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.622171016838255,
+            "submId1": 29420,
+            "submId2": 29416,
+            "submsId": 18,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "数列",
+            "problemTitle2": "数列",
+            "similarity": 0.622171016838255,
+            "submId1": 29423,
+            "submId2": 29409,
+            "submsId": 19,
+            "userName1": null,
+            "userName2": null
+        },
+        {
+            "problemTitle1": "Pipeline",
+            "problemTitle2": "Pipeline",
+            "similarity": 0.622171016838255,
+            "submId1": 29420,
+            "submId2": 29416,
+            "submsId": 18,
+            "userName1": null,
+            "userName2": null
+        }
+    ],
+    "total":19238
+}

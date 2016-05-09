@@ -1,0 +1,205 @@
+{
+    "total": 11113,
+    "data": [
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年硕士研究生复试专业能力测试（计算机、软件工程）",
+            "examId": 10,
+            "exprId": 897,
+            "userName": null,
+            "userId": 112,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年硕士研究生复试专业能力测试（教育技术）",
+            "examId": 11,
+            "exprId": 898,
+            "userName": null,
+            "userId": 112,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "C-Exam 3-1",
+            "examId": 17,
+            "exprId": 1074,
+            "userName": null,
+            "userId": 112,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "C Exam 3-2",
+            "examId": 18,
+            "exprId": 1298,
+            "userName": null,
+            "userId": 112,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "C Exam Final-1",
+            "examId": 21,
+            "exprId": 1458,
+            "userName": null,
+            "userId": 112,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "yang yang yang",
+            "examId": 20,
+            "exprId": 1733,
+            "userName": "wwhhff11",
+            "userId": 2,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1734,
+            "userName": null,
+            "userId": 957,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1735,
+            "userName": null,
+            "userId": 966,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1736,
+            "userName": null,
+            "userId": 959,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1737,
+            "userName": null,
+            "userId": 963,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1738,
+            "userName": null,
+            "userId": 930,
+            "acedCount": 0
+        },
+        {
+            "score": 40,
+            "usedTime": 15255,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1739,
+            "userName": null,
+            "userId": 935,
+            "acedCount": 1
+        },
+        {
+            "score": 70,
+            "usedTime": 12323,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1740,
+            "userName": null,
+            "userId": 924,
+            "acedCount": 2
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1741,
+            "userName": null,
+            "userId": 926,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1742,
+            "userName": null,
+            "userId": 933,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1743,
+            "userName": null,
+            "userId": 958,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1744,
+            "userName": null,
+            "userId": 931,
+            "acedCount": 0
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1745,
+            "userName": null,
+            "userId": 973,
+            "acedCount": 0
+        },
+        {
+            "score": 80,
+            "usedTime": 9944,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1746,
+            "userName": null,
+            "userId": 975,
+            "acedCount": 2
+        },
+        {
+            "score": 0,
+            "usedTime": 0,
+            "examName": "2013年C语言补考",
+            "examId": 23,
+            "exprId": 1747,
+            "userName": null,
+            "userId": 937,
+            "acedCount": 0
+        }
+    ]
+}

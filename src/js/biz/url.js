@@ -28,6 +28,10 @@ define(function(require){
         LOGIN: '../../mock/loginResult.json',
         SELECT_SUBMIT: '../../mock/usersubmit.json',
         UNLOCKLIST: '../../mock/unlocklist.json',
-        UNLOCKIT: '../../mock/result.json'
+        UNLOCKIT: '../../mock/result.json',
+        SELECT_PAPERLIST: '../../mock/paperList.json',
+        DELETE_PAPER: '../../mock/result.json',
+        SELECT_PAPERDETAIL: '../../mock/paperDetail.json',
+        SELECT_SIMILARITYLIST: '../../mock/similarityList.json'
     }
 })

@@ -28,7 +28,8 @@ define(function(require){
          */
         ajax: function(url, params, _callback, extraOps = {}) {
             var type = extraOps.type || 'get',
-            isasync  = extraOps.async || false;
+            isasync  = extraOps.async || false,
+            istradi = extraOps.istradi || false;
             $.ajax({
                 type: type,
                 contentType: "application/x-www-form-urlencoded;charset=UTF-8",
@@ -36,6 +37,7 @@ define(function(require){
                 async: isasync,
                 data: params,
                 dataType:'json',
+                traditional: istradi,
                 success: function(result){
                     if(_callback) {
                         _callback(result);

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header panel panel-default">
+                        <div class="panel-heading pageName">基本信息</div>
+                        <div class='panel-body'>
+                        <dl class="dl-horizontal basicInfo">
+                          <dt>考试：</dt>
+                          <dd class="examName"></dd>
+                          <dt>用户：</dt>
+                          <dd class="userName"></dd>
+                          <dt>总分：</dt>
+                          <dd class="totalNum"></dd>
+                          <dt>AC数：</dt>
+                          <dd class="acNum"></dd>
+                          <dt>时间消耗：</dt>
+                          <dd class="time"></dd>
+                        </dl>
+                        </div>
+                    </div>
+                    <div class="row opration page-header panel panel-default">
+                        <div class="panel-heading pageName">试卷问题</div>
+                        <div class='panel-body'>
+                        <form class="form-horizontal" >
+                           <table class="table table-hover table-condensed table-striped">
+                               <thead>
+                               <th>序号</th>
+                               <th>模板</th>
+                               <th>问题</th>
+                                <th>ACed</th>
+                               <th>提交次数</th>
+                               <th>最后一次提交时间</th>
+                               <th>时间消耗</th>
+                               </thead>
+                               <tbody id="paperTempla">
+                               </tbody>
+                            </table>
+                        </form>
+                        <script id="getcontent" type="text/html">
+                             {{each listMapProblem as value i}} 
+                               <tr>
+                                <td>{{++i}}</td>
+                                <td>{{value.examName}}</td>
+                                <td>{{value.problemName}}</td>
+                                {{if value.isAced==1}}
+                                    <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                                {{else}}
+                                    <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                                {{/if}}
+                                <td>{{value.submitCount}}</td>
+                                <td>{{value.lastSubmitTime}}</td>
+                                <td>{{value.usedTime}}</td>
+                               </tr>
+                             {{/each}}
+                         </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/paperDetail.js')
+</script>
+</body>
+</html>

@@ -53,6 +53,9 @@
                             <a href="exam.html">考试列表</a>
                         </li>
                         <li>
+                            <a href="paper.html">试卷</a>
+                        </li>
+                        <li>
                             <a href="similarity.html">相似度检测结果</a>
                         </li>
                     </ul>

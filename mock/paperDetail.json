@@ -1,0 +1,91 @@
+{
+    "mapPaper": {
+        "score": 20,
+        "usedTime": 34783,
+        "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+        "userName": "wwhhff11",
+        "acedCount": 2
+    },
+    "listMapProblem": [
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": null,
+            "isAced": 0
+        },
+        {
+            "usedTime": 18603,
+            "submitCount": 2,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": "2012-09-26 09:50:03",
+            "problemName": null,
+            "isAced": 1
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "Locker doors",
+            "isAced": 0
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "Renting Boats",
+            "isAced": 0
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "找回密码",
+            "isAced": 0
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "栈的操作",
+            "isAced": 0
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "火车出站",
+            "isAced": 0
+        },
+        {
+            "usedTime": 16180,
+            "submitCount": 6,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": "2012-09-26 07:49:40",
+            "problemName": "数列",
+            "isAced": 1
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "Calendar Display",
+            "isAced": 0
+        },
+        {
+            "usedTime": 0,
+            "submitCount": 0,
+            "examName": "计算机学院2013年硕士研究生推免专业能力测试",
+            "lastSubmitTime": null,
+            "problemName": "小偷跑了",
+            "isAced": 0
+        }
+    ]
+}

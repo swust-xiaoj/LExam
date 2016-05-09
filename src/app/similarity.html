@@ -20,7 +20,7 @@
                         <div class="col-md-3">
                             <div class="input-group">
                                 <input type="text" class="form-control searTitle"
-                                    placeholder="key words"> <span
+                                    placeholder=""> <span
                                     class="input-group-btn">
                                     <button class="btn btn-primary search" type="button">查询</button>
                                 </span>
@@ -41,14 +41,14 @@
                     </tbody>
                 </table>
                 <script id="getcontent" type="text/html">
-                    {{each data as value i}} 
-                           <tr>
-                            <td><input type="checkbox" value="{{value.examId}}" name="title"/></td>
-                            <td>{{++i}}</td>
-                            <td><a href="editExam.html?id={{value.examId}}" class="title">{{value.title}}</a></td>
-                            <td>{{value.endTime}}</td>
-                            <td>{{value.startTime}}</td>
-                           </tr>
+                    {{each list as value i}} 
+                       <tr>
+                        <td><input type="checkbox" name="title"/></td>
+                        <td>{{++i}}</td>
+                        <td>{{value.problemTitle1}}{{value.userName1}}</td>
+                        <td>{{value.problemTitle2}}{{value.userName2}}</td>
+                        <td>{{value.similarity}}</td>
+                       </tr>
                     {{/each}}
                 </script>
                 <div class="row col-md-offset-8">
@@ -63,7 +63,7 @@
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
 <script type="text/javascript">
-    seajs.use('../js/exam.js')
+    seajs.use('../js/similarity.js')
 </script>
 </body>
 </html>
