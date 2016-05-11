@@ -26,7 +26,10 @@ define(function(require){
          * @param callbacksuc success callback funtion
          * author xiaojie
          */
-        ajax: function(url, params, _callback, extraOps = {}) {
+        ajax: function(url, params, _callback, extraOps) {
+            if(!extraOps){
+                extraOps = {};
+            }
             var type = extraOps.type || 'get',
             isasync  = extraOps.async || false,
             istradi = extraOps.istradi || false;

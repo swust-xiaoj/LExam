@@ -3,10 +3,10 @@ define(function(require, exports, module){
     require('bootstrap');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
-    require('wangEditor');
+    // require('wangEditor');
     var program = {
 
     };
-    var editor = new wangEditor('footer-info');
-    editor.create();
+    // var editor = new wangEditor('footer-info');
+    // editor.create();
 })

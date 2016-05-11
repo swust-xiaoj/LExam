@@ -23,7 +23,11 @@
  </div>
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
-<!-- <script src="../js/lib/wangEditor.min.js"></script> -->
+<script src="../js/lib/wangEditor.min.js"></script>
+<script type="text/javascript">
+    var editor = new wangEditor('footer-info');
+    editor.create();
+</script>
 <script type="text/javascript">
     seajs.use('../js/syssetting.js')
 </script>
