@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 @@include('./common/header.inc')
-<link rel="stylesheet" href="../css/lib/wangEditor.min.css">
 <body>
  <div id="wrapper">
     <!-- navigation -->
@@ -13,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="row opration page-header">
                        <div class="tips"></div>
-                       <div id="footer-info"></div>
+                       <div class="content"></div>
                     </div>
                 </div>
             </div>
@@ -23,13 +22,16 @@
  </div>
 <!-- @@include('./common/modal.inc') -->
 @@include('./common/commonscript.inc')
+<<<<<<< bc5465c185e003fa49f5ed70c4b91a798d1eee1b:src/app/syssetting.html
 <script src="../js/lib/wangEditor.min.js"></script>
 <script type="text/javascript">
     var editor = new wangEditor('footer-info');
     editor.create();
 </script>
+=======
+>>>>>>> add doc:src/html/stuexam.html
 <script type="text/javascript">
-    seajs.use('../js/syssetting.js')
+    seajs.use('../js/stuexam.js')
 </script>
 </body>
 </html>

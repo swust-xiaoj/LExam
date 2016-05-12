@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<!-- <link rel="stylesheet" type="text/css" href="../css/lib/datepicker.css"> -->
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                        <div class="tips"></div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-success addProblem">
+                                <span class="glyphicon glyphicon-plus"></span>添加题目
+                            </button>
+                            <button type="button" class="btn btn-info addProblems">
+                                <span class="glyphicon glyphicon-plus"></span>批量添加
+                            </button>
+                            <button type="button" class="btn btn-success delete">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除题目
+                            </button>
+                        </div>
+                        <div class="col-md-8">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <select class="form-control courseName">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control knowName">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control level">
+                                    <option value="">难度</option>
+                                    <option value="0">Easy</option>
+                                    <option value="1">Normal</option>
+                                    <option value="2">Hard</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control searTitle" placeholder="标题">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary search" type="button">查询</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                <table class="table table-bordered table-hover table-condensed table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="check_list" />全选</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Difficulty</th>
+                            <th>AC/Submit</th>
+                            <th>CreateTime</th>
+                            <th>Course</th>
+                            <th>Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listInfo">
+                    </tbody>
+                </table>
+                <script id="getcontent" type="text/html">
+                    {{each data as data i}} 
+                        <tr>
+                            <td><input type="checkbox" value="{{data.probId}}" name="title"/></th>
+                            <td>{{++i}}</td>
+                            <td><a href="question.html?id={{data.probId}}" class="title">{{data.title}}</a></td>
+                            <td>{{data.difficulty}}</td>
+                            <td>{{data.acedNum}}/{{data.totalSubmit}}</td>
+                            <td>{{data.createTime}}</td>
+                            <td>{{data.courseName}}</td>
+                            <td>{{data.knowName}}</td>
+                        </tr>
+                 {{/each}}
+                </script>
+                <div class="row col-md-offset-8">
+                    <ul class="pagination" id="pagination"></ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/problem.js')
+</script>
+</body>
+</html>

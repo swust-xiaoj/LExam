@@ -66,7 +66,7 @@ gulp.task('copy:js', function() {
 //将js加上8位md5,并修改html中的引用路径，该动作依赖build-js
 gulp.task('md5:js', ['build-js'], function (done) {
     gulp.src('dist/js/*.js')
-        .pipe(md5(8, 'dist/app/*.html'))
+        .pipe(md5(8, 'dist/html/*.html'))
         .pipe(gulp.dest('dist/js'))
         .on('end', done);
 });
@@ -74,7 +74,7 @@ gulp.task('md5:js', ['build-js'], function (done) {
 //将css加上8位md5，并修改html中的引用路径，该动作依赖sprite
 gulp.task('md5:css', ['sprite'], function (done) {
     gulp.src('dist/css/*.css')
-        .pipe(md5(8, 'dist/app/*.html'))
+        .pipe(md5(8, 'dist/html/*.html'))
         .pipe(gulp.dest('dist/css'))
         .on('end', done);
 });
@@ -137,7 +137,7 @@ gulp.task('open', ['copy:images','copy:js', 'fileinclude','less','build-js','cop
     gulp.src('')
         .pipe(gulpOpen({
             app: browser,
-            uri: 'http://localhost:8090/dist/app/'
+            uri: 'http://localhost:8090/dist/html/'
         }))
         .on('end', done);
 });
@@ -158,12 +158,12 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
 });
 //用于在html文件中直接include文件
 gulp.task('fileinclude', function (done) {
-    gulp.src(['src/app/*.html'])
+    gulp.src(['src/html/*.html'])
         .pipe(fileinclude({
           prefix: '@@',
           basepath: '@file'
         }))
-        .pipe(gulp.dest('dist/app'))
+        .pipe(gulp.dest('dist/html'))
         .on('end', done);
         // .pipe(connect.reload())
 });

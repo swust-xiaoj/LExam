@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                       <div class="tips"></div>
+                    </div>
+                    <form role="form">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>系统名称：</label>
+                            <input class="form-control systemName" />
+                         </div>
+                        <div class="form-group">
+                            <label>页脚信息：</label>
+                            <input class="form-control col-md-4 footer" />
+                        </div>
+                        <div class="form-group">
+                            <label>每页显示条数：</label>
+                            <div>
+                                <select class="form-control rowsNum">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>首页数据：</label>
+                        <script id="index-data"  class="index-data" name="index-data"  type="text/plain"></script>
+                    </div>
+                    <div class="form-group">
+                        <label>FAQS&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                        <script id="faqs-data"  class="faqs-data" name="faqs-data"  type="text/plain"></script>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/syssetting.js')
+</script>
+</body>
+</html>
