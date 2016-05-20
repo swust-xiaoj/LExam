@@ -5,14 +5,6 @@ define(function(require, exports, module){
     require('ueditor');
     var utils = require('biz/utils.js');
     var url = require('biz/url.js');
-<<<<<<< bc5465c185e003fa49f5ed70c4b91a798d1eee1b
-    // require('wangEditor');
-    var program = {
-
-    };
-    // var editor = new wangEditor('footer-info');
-    // editor.create();
-=======
     var program = {
 
     };
@@ -24,5 +16,4 @@ define(function(require, exports, module){
         initialFrameWidth: 550,
         initialFrameHeight: 300
     })
->>>>>>> add doc
 })
