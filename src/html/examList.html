@@ -12,8 +12,33 @@
                 <div class="col-lg-12">
                     <div class="row opration page-header">
                        <div class="tips"></div>
-                       <h2>this is a blank page !!!</h2>
+                       <h2>考试列表 <small class="nowTime"></small></h2>
                     </div>
+                    <table class="table table-bordered table-hover table-condensed table-striped" id="example">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>title</th>
+                            <th>startTime</th>
+                            <th>endTime</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listInfo">
+                    </tbody>
+                </table>
+                <script id="getcontent" type="text/html">
+                    {{each data as value i}} 
+                           <tr>
+                            <td>{{++i}}</td>
+                            <td><a href="examInfo.html?id={{value.examId}}" class="title">{{value.title}}</a></td>
+                            <td>{{value.startTime}}</td>
+                            <td>{{value.endTime}}</td>
+                           </tr>
+                    {{/each}}
+                </script>
+                <div class="row col-md-offset-8">
+                    <ul class="pagination" id="pagination"></ul>
+                </div>
                 </div>
             </div>
         </div>

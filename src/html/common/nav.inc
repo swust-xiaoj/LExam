@@ -98,10 +98,7 @@
                     <a href="#"><i class="fa fa-copy fa-fw"></i> 考场管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="##">XXXX</a>
-                        </li>
-                        <li>
-                            <a href="##">XXXX</a>
+                            <a href="examList.html">考试列表</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

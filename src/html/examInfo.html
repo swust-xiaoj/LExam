@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+@@include('./common/header.inc')
+<body>
+ <div id="wrapper">
+    <!-- navigation -->
+    @@include('./common/nav.inc')
+    <!-- page content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row opration page-header">
+                       <div class="tips"></div>
+                         <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#probList" aria-controls="probList" role="tab" data-toggle="tab">题目列表</a></li>
+                        <li role="presentation"><a href="#mySubmit" aria-controls="mySubmit" role="tab" data-toggle="tab">我的提交</a></li>
+                        <li role="presentation"><a href="#allSubmit" aria-controls="allSubmit" role="tab" data-toggle="tab">所有提交</a></li>
+                        <li role="presentation"><a href="#ranking" aria-controls="ranking" role="tab" data-toggle="tab">排名</a></li>
+                        <li role="presentation"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">公告</a></li>
+                      </ul>
+                    </div>
+                <div>
+                <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="probList">
+                    allproblem
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="mySubmit">
+                        mysubmit
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="allSubmit">
+                    <table class="table table-bordered table-hover table-condensed table-striped submit" >
+                            <thead>
+                            <tr>
+                                <th>Run ID</th>
+                                <th>Problem</th>
+                                <th>Username</th>
+                                <th>Result</th>
+                                <th>Memory[KB]</th>
+                                <th>Time[MS]</th>
+                                <th>Complier</th>
+                                <th>Length[B]</th>
+                                <th>Submit Time</th>
+                            </tr>
+                            </thead>
+                            <tbody id="listInfo">
+                            </tbody>
+                        </table>
+                        <script id='getcontent' type="text/html">
+                        {{each data as data i}}
+                        <tr>
+                            <td>{{data.id}}</td>
+                            <td><a href="problemDetail.html?id={{data.problemid}}">{{data.problemid}}</a></td>
+                            <td><a href="##">{{data.username}}</a></td>
+                            <td><span class='label label-{{data.rstClass}}'>{{data.rstText}}</span></td>
+                            <td>{{data.memory}}</td>
+                            <td>{{data.time}}</td>
+                            <td>{{data.compiler}}</td>
+                            <td>{{data.length}}</td>
+                            <td>{{data.submit_time}}</td>
+                        </tr>
+                        {{/each}}
+                    </script>
+                    <div class="row col-md-offset-8">
+                        <ul class="pagination" id="pagination"></ul>
+                    </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="ranking">ranking</div>
+                    <div role="tabpanel" class="tab-pane" id="notice">notice</div>
+                  </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./common/copyright.inc')
+ </div>
+<!-- @@include('./common/modal.inc') -->
+@@include('./common/commonscript.inc')
+<script type="text/javascript">
+    seajs.use('../js/examInfo.js')
+</script>
+</body>
+</html>
