@@ -8,7 +8,6 @@ define(function(require){
     require('jquery');
     var constant = require('./constant.js');
 
-    //小于 10 的数前面补 0
     function paddingZero(val) {
         if(val < 10) {
             return '0' + val;
@@ -18,14 +17,6 @@ define(function(require){
     }
 
     return {
-        /*
-         * ajax
-         * @param url sendurl
-         * @param params data
-         * @param isasync async
-         * @param callbacksuc success callback funtion
-         * author xiaojie
-         */
         ajax: function(url, params, _callback, extraOps) {
             if(!extraOps){
                 extraOps = {};
@@ -53,22 +44,12 @@ define(function(require){
                 }
             })
         },
-        /*
-         * set ajax return status text
-         * @param className tips class only in [danger, success, info, warning]
-         * @param tipsText text, html string can also
-         */
         setTips: function (className, tipsText) {
             $('.tips').html('');
             $('.tips').html('<div class="alert alert-'+ className +' alert-dismissable fade in">'
                 + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
                 + tipsText + '</div>').fadeIn(800).fadeOut(5000);
         },
-        /*
-         * get url params
-         * url like "www.baidu.com?id=1&name=xiaoj"
-         * @return object like {id: 1, name: 'xiaojie'}
-         */
         getQueryObject:function () {
             var url = window.location.href;
             var search = url.substring(url.lastIndexOf("?") + 1);
@@ -83,12 +64,6 @@ define(function(require){
             });
             return obj;
         },
-        /* 
-         * 按所给的时间格式输出指定的时间
-         *
-         * for example: formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss 星期w')
-         * output: 2014-09-05 13:14:20 星期五
-         */
         formatDate: function(oDate, sFormation) {  
             var eles = {
                 'yyyy': oDate.getFullYear(),
@@ -170,11 +145,8 @@ define(function(require){
                 messages: messages,
                 errorElement: "strong",
                 errorPlacement: function ( error, element ) {
-                    // Add the `help-block` class to the error element
                     error.addClass( "help-block" );
 
-                    // Add `has-feedback` class to the parent div.form-group
-                    // in order to add icons to inputs
                     element.parents( ".col-sm-5" ).addClass( "has-feedback" );
 
                     if ( element.prop( "type" ) === "checkbox" ) {
@@ -183,13 +155,11 @@ define(function(require){
                         error.insertAfter( element );
                     }
 
-                    // Add the span element, if doesn't exists, and apply the icon classes to it.
                     if ( !element.next( "span" )[ 0 ] ) {
                         $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
                     }
                 },
                 success: function ( label, element ) {
-                    // Add the span element, if doesn't exists, and apply the icon classes to it.
                     if ( !$( element ).next( "span" )[ 0 ] ) {
                         $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
                     }

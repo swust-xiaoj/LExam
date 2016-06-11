@@ -11,10 +11,10 @@ define(function(require){
                 }
                 else{
                     if(result.isAdmin){
-                        window.location.href = 'index.html';
+                        // window.location.href = 'exam.html';
                     }
                     else {
-                        window.location.href = 'index.html';
+                        // window.location.href = 'exam.html';
                     }
                 }
             },{type: 'post', errorCallback: function() {
